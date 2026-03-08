@@ -2119,7 +2119,7 @@
       const orderPreviewHtml = `📢 주문문장: ${escapeHtml(basicOrderSentence)}${cautionTextForOrder ? `<br/>참고사항: ${escapeHtml(tabooShortList.join(' · '))}` : ''}`;
       const basicMsgList = [basicMessage];
       const paidBadge = '꽃다발';
-      const paidBtnText = PG_READY ? '👉 3,900원으로 시크릿 가이드 열기' : '🎁 화이트데이 한정기간 무료 오픈! (꽃다발 이미지)';
+      const paidBtnText = PG_READY ? '👉 3,900원으로 시크릿 가이드 열기' : '🔒 TONEART 코드 입력하고 열기';
       const paidPriceGuideHtml = PG_READY ? `
           <div style="text-align: center; margin: 10px 0 10px;">
             <div style="font-weight: 700; color: #111827; margin-bottom: 6px;">🔒 잠깐! 꽃집에 가기 전, 완벽한 주문서를 확인하세요</div>
@@ -2191,7 +2191,7 @@
         <!-- [PAID] 디테일 확장 -->
         <div class="box paidCard" id="paidUpsellBox">
           <div class="paidHead">
-            <div class="paidTitle">TONE ART 톤아트 시크릿 가이드</div>
+            <div class="paidTitle">🎁 TONE ART 톤아트 시크릿 가이드</div>
             <div class="paidPrice">${paidBadge}</div>
           </div>
           <p class="paidSub">지금은 이벤트로 누구나 열람가능, 종료 후 유료로 전환될 수 있어요</p>
