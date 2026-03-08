@@ -2221,8 +2221,7 @@
         const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'x-admin-key': localStorage.getItem('ADMIN_KEY') || ''
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             relation: userState.relation,
