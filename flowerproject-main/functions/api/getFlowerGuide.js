@@ -111,7 +111,9 @@ function getClientIp(request) {
 async function enforceRateLimit({ request, env, vipCode }) {
   const kv = env?.RATE_LIMIT_KV || env?.RESULTS_KV || null;
   if (!kv) {
-    return { ok: false, status: 500, error: "missing_rate_limit_kv_binding" };
+    // Allow serving responses even if KV binding is not configured yet.
+    // This avoids total API outage while infra is being set up.
+    return { ok: true, skipped: true, reason: "missing_rate_limit_kv_binding" };
   }
 
   const max = Math.max(1, Number(env?.VIP_RATE_LIMIT_MAX || 20));
@@ -186,7 +188,8 @@ export async function onRequest(context) {
   const requestOrigin = requestUrl.origin;
   const originHeader = request.headers.get("origin");
   const allowedOrigins = parseAllowedOrigins(env, requestOrigin);
-  const originAllowed = !!originHeader && allowedOrigins.has(originHeader);
+  // Same-origin requests may not always include Origin; allow them.
+  const originAllowed = !originHeader || allowedOrigins.has(originHeader);
   const cors = corsHeadersFor(request, originAllowed ? originHeader : requestOrigin);
   const vipCodes = configuredVipCodes(env);
 
