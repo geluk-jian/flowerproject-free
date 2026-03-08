@@ -205,7 +205,8 @@
 
     .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; position:relative; z-index:2;}
 
-    #app button{
+    #app button,
+    #vipGateModal button{
       appearance:none;
       border:1px solid var(--accent);
       background: var(--accent);
@@ -217,15 +218,25 @@
       letter-spacing:-.1px;
       transition: transform .08s ease, background .15s ease, border-color .15s ease;
     }
-    #app button:hover{transform: translateY(-1px); background: var(--accentDark); border-color: var(--accentDark);}
+    #app button:hover,
+    #vipGateModal button:hover{
+      transform: translateY(-1px);
+      background: var(--accentDark);
+      border-color: var(--accentDark);
+    }
 
-    #app button.secondary{
+    #app button.secondary,
+    #vipGateModal button.secondary{
       border:1px solid var(--line);
       background: #fff;
       color: var(--text);
       font-weight:800;
     }
-    #app button.secondary:hover{background:#f8fafc; border-color:#d1d5db;}
+    #app button.secondary:hover,
+    #vipGateModal button.secondary:hover{
+      background:#f8fafc;
+      border-color:#d1d5db;
+    }
 
     .screen{display:none;}
     .screen.active{display:block;}
