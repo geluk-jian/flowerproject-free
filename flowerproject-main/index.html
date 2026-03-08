@@ -1,0 +1,3303 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-adsense-account" content="ca-pub-5488141368125579" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5488141368125579"
+     crossorigin="anonymous"></script>
+  <title>꽃을 만지는 누나가 도와드림</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      /* 밝은 원톤 */
+      --bg:#FDFAF6;
+
+      /* 카드/텍스트 */
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+
+      /* 라인/그림자 */
+      --line:#e5e7eb;
+      --ink:#111827;
+      --shadow: 0 10px 30px rgba(15, 23, 42, .08);
+
+      /* 브랜드 그린(단일 키) */
+      --brand: #3DB56A;
+      --brand-dark: #2D9A57;
+      --accent: var(--brand);
+      --accentDark: var(--brand-dark);
+
+      --radius: 18px;
+      --pad: 18px;
+      --max: 760px;
+
+      /* ===== Landing v2 tokens ===== */
+      --cream: #FDFAF5;
+      --green: var(--brand);
+      --green-dark: var(--brand-dark);
+      --green-light: #E8F7EE;
+      --text-dark: #1A1A1A;
+      --text-mid: #555;
+      --text-light: #999;
+      --bubble-bg: #F0F0F0;
+      --border: #E8E8E8;
+      --white: #FFFFFF;
+    }
+
+    .service-period { margin: 16px 0; }
+    .service-period__box{
+      padding: 12px 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fafafa;
+      color: #111827;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .service-period__box strong{ font-weight: 700; }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: "Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);          /* ✅ 그라데이션 제거 */
+      color:var(--text);
+      line-height:1.45;
+    }
+
+    .topnav{
+      display:flex; flex-wrap:wrap; gap:10px;
+      padding: 6px 2px 14px;
+      align-items:center;
+      font-size:12px;
+      color: var(--muted);
+    }
+    .topnav a{
+      color: var(--muted);
+      text-decoration:none;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+    }
+    .topnav a:hover{color: var(--text); border-color: var(--accent);}
+    .toneHandle{
+      margin-top: 16px;
+      text-align:center;
+      font-size:14px;
+      font-weight:900;
+      letter-spacing:.2px;
+      color:#334155;
+    }
+    .toneHandle a{
+      color: inherit;
+      text-decoration:none;
+    }
+    .toneHandle a:hover{
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+    .topInfoPanel{
+      display:none;
+      margin: 0 0 14px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background:#fff;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .topInfoPanel.active{display:block;}
+    .topInfoHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      margin-bottom:8px;
+    }
+    .topInfoHead h2{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-.2px;
+    }
+    .topInfoBody p{
+      margin:0 0 8px;
+      font-size:14px;
+      color:var(--text);
+    }
+    .topInfoBody p:last-child{margin-bottom:0;}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px 16px 60px;}
+
+    #app .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .hd{
+      padding:14px var(--pad);
+      border-bottom:1px solid var(--line);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      background: #fff;
+    }
+
+    .hd h1, .hd h2{margin:0; font-size:16px; letter-spacing:-.2px; color: var(--text);}
+    .resultTitle{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .proBadge{
+      display:inline-flex;
+      align-items:center;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid #bfdbfe;
+      background:#eff6ff;
+      color:#1d4ed8;
+      font-size:10px;
+      font-weight:900;
+      line-height:1;
+      white-space:nowrap;
+    }
+
+    .bd{padding: var(--pad);}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border:1px solid var(--line); border-radius:999px;
+      color:var(--muted); font-size:12px;
+      background: #fff;
+      user-select:none;
+      white-space:nowrap;
+    }
+
+    .muted{color:var(--muted)}
+
+    .hero{
+      padding:22px 18px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .hero h1{
+      font-size:22px;
+      margin:0 0 8px;
+      letter-spacing:-.4px;
+      font-weight:900;
+      color:var(--text);
+    }
+
+    .hero p{margin:0 0 10px; color:var(--muted); font-size:14px;}
+
+    .hero .mini{
+      margin-top:10px;
+      font-size:13px;
+      color: var(--text);
+      opacity:.9;
+    }
+
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; position:relative; z-index:2;}
+
+    #app button{
+      appearance:none;
+      border:1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 14px;
+      cursor:pointer;
+      font-weight:800;
+      letter-spacing:-.1px;
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+    }
+    #app button:hover{transform: translateY(-1px); background: var(--accentDark); border-color: var(--accentDark);}
+
+    #app button.secondary{
+      border:1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font-weight:800;
+    }
+    #app button.secondary:hover{background:#f8fafc; border-color:#d1d5db;}
+
+    .screen{display:none;}
+    .screen.active{display:block;}
+
+    .progressWrap{
+      margin: 0 0 14px;
+      padding: 10px 12px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .progressTop{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      font-size:12px; color:var(--muted);
+      margin-bottom:8px;
+      font-weight:700;
+    }
+
+    .bar{
+      height:10px;
+      border-radius:999px;
+      background: #eef2f7;
+      overflow:hidden;
+      border:1px solid #e5e7eb;
+    }
+
+    .bar > div{
+      height:100%;
+      width:0%;
+      background: var(--accent); /* ✅ 그린 */
+      transition: width .25s ease;
+    }
+
+    /* ✅ Q 폰트(사진 느낌: 굵고 크게, 가운데) */
+    .q{
+      margin: 6px 0 10px;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: -0.6px;
+      font-weight: 900;
+      text-align:center;
+      color: var(--text);
+    }
+
+    .sub{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+      font-weight:650;
+    }
+
+    .options{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+    }
+
+    /* ✅ 선택 박스: 기본 흰색, 두꺼운 테두리, 그림자 */
+    .opt{
+      border:2px solid var(--ink);
+      background: #fff;
+      padding:16px 14px;
+      border-radius: 18px;
+      cursor:pointer;
+      transition: transform .08s ease, border-color .15s ease, background .15s ease, color .15s ease;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+
+      /* 사진처럼 살짝 뜬 느낌 */
+      box-shadow: 0 8px 0 rgba(17,24,39,.10);
+    }
+
+    .opt:hover{transform: translateY(-1px); border-color: var(--accent);}
+
+    /* ✅ 선택 후 그린 */
+    .opt[data-selected="true"]{
+      border-color: var(--accent);
+      background: var(--accent);
+      color:#fff;
+    }
+
+    .opt .title{
+      font-weight: 900;
+      letter-spacing:-.2px;
+      color: inherit;
+      font-size: 15px;
+    }
+
+    .opt .desc{
+      font-size:12px;
+      color: var(--muted);
+      margin-top:6px;
+      font-weight:650;
+    }
+
+    .opt[data-selected="true"] .desc{
+      color: rgba(255,255,255,.92);
+    }
+
+    .footnote{margin-top:12px; font-size:12px; color:var(--muted); font-weight:600;}
+    .trustline{
+      margin-top:8px;
+      font-size:12px;
+      color:var(--text);
+      font-weight:800;
+    }
+
+    #app .box{
+      border:1px solid var(--line);
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px;
+      margin-top: 12px;
+    }
+
+    .box h3{margin:0 0 8px; font-size:14px; font-weight:900; letter-spacing:-.2px;}
+    .top3{display:grid; gap:10px;}
+    .topItem{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      padding:12px;
+      font-weight:900;
+      font-size:15px;
+      letter-spacing:-.2px;
+    }
+    .topItem small{
+      display:block;
+      margin-top:4px;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:700;
+    }
+    .priceRow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    .priceBadge{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      background:#f8fafc;
+      font-size:12px;
+      font-weight:900;
+      color:var(--text);
+    }
+    details.explain{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px 12px;
+      background:#fff;
+    }
+    details.explain summary{
+      cursor:pointer;
+      font-weight:900;
+      font-size:13px;
+      color:var(--text);
+      list-style:none;
+    }
+    details.explain summary::-webkit-details-marker{display:none;}
+    details.explain p{
+      margin:8px 0 0;
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .chips{display:flex; flex-wrap:wrap; gap:8px;}
+    .chip{
+      font-size:12px; color: var(--text);
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: #f8fafc;
+      font-weight:800;
+    }
+
+    .samplePhoto{
+      margin: 0 0 10px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+    .samplePhoto img{
+      display:block;
+      width:100%;
+      height:220px;
+      object-fit:contain;
+      object-position:center;
+      background:#fff;
+    }
+    .samplePhoto .cap{
+      padding:8px 10px;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:700;
+      border-top:1px solid var(--line);
+      background:#fff;
+    }
+    .samplePhoto .title{
+      padding:10px 12px;
+      font-size:13px;
+      color:var(--text);
+      font-weight:900;
+      border-bottom:1px solid var(--line);
+      background:#f8fafc;
+    }
+
+    .palette{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:8px;
+    }
+    .swatch{
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      background:#fff;
+    }
+    .swatchColor{
+      height:34px;
+      border-bottom:1px solid var(--line);
+    }
+    .swatchMeta{
+      padding:6px 8px;
+      font-size:11px;
+      color:var(--text);
+      font-weight:800;
+      text-align:center;
+      letter-spacing:-.1px;
+    }
+
+    .list{margin:8px 0 0; padding-left: 18px; font-size:13px; color: var(--text); font-weight:650;}
+    .list li{margin:4px 0;}
+
+    #app .toast{
+      position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
+      background: rgba(17,24,39,.92);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      opacity: 0; pointer-events:none;
+      transition: opacity .15s ease;
+      z-index: 9999;
+      font-weight:700;
+    }
+    #app .toast.show{opacity:1;}
+
+    .divider{height:1px; background: #eef2f7; margin:12px 0;}
+
+    /* ===== Landing Page v2 (Start Screen Only) ===== */
+    #screenStart{
+      /* wrap(상단 padding 24px) 때문에 헤더가 내려앉는 거 상쇄 */
+      margin-top: -24px;
+      background: var(--cream);
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    #screenStart .lpWrap{
+      max-width: 480px;
+      margin: 0 auto;
+      /* 바깥 .wrap이 좌우 16px 주니까, 여기선 4px만 더해서 총 20px 느낌 */
+      padding: 0 4px 40px;
+    }
+
+    #screenStart .lpHeader{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding: 16px 0;
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+
+    #screenStart .lpLogo{
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      display:flex;
+      align-items:center;
+      gap: 6px;
+    }
+
+    #screenStart .lpHeaderCta{
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 700;
+      cursor: pointer;
+      border: 1.5px solid var(--green);
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: transparent;
+    }
+    #screenStart .lpHeaderCta:hover{
+      transform:none;
+      background: rgba(61,181,106,0.10);
+      border-color: var(--green);
+    }
+
+    /* 말풍선 */
+    #screenStart .lpBubbles{
+      padding: 28px 0 0;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    #screenStart .lpBubble{
+      display:inline-flex;
+      align-items:center;
+      background: var(--bubble-bg);
+      border-radius: 18px;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: var(--text-mid);
+      max-width: 80%;
+      line-height: 1.4;
+      position: relative;
+      animation: lpFadeSlideIn 0.5s ease both;
+    }
+
+    #screenStart .lpBubble::after{
+      content:'';
+      position:absolute;
+      bottom:-6px;
+      width:12px;
+      height:12px;
+      background: var(--bubble-bg);
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    #screenStart .lpBubble.left{
+      align-self:flex-start;
+      border-bottom-left-radius: 4px;
+    }
+    #screenStart .lpBubble.left::after{ left: 14px; }
+
+    #screenStart .lpBubble.right{
+      align-self:flex-end;
+      border-bottom-right-radius: 4px;
+    }
+    #screenStart .lpBubble.right::after{
+      right: 14px;
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+    }
+
+    #screenStart .lpBubble:nth-child(1){ animation-delay: 0s; }
+    #screenStart .lpBubble:nth-child(2){ animation-delay: .15s; }
+    #screenStart .lpBubble:nth-child(3){ animation-delay: .3s; }
+
+    @keyframes lpFadeSlideIn{
+      from{ opacity:0; transform: translateY(8px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    /* 히어로 */
+    #screenStart .lpHero{
+      display:flex;
+      align-items:center;
+      gap: 16px;
+      margin-top: 24px;
+      animation: lpFadeSlideIn 0.6s ease 0.4s both;
+    }
+
+    #screenStart .lpFlowerSlide{
+      flex-shrink: 0;
+      width: 42%;
+      aspect-ratio: 3 / 4;
+      background: var(--white);
+      border-radius: 20px;
+      overflow:hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    #screenStart .lpFlowerSlide img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit: contain;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      background: #fff;
+    }
+    #screenStart .lpFlowerSlide img.active{ opacity: 1; }
+
+    #screenStart .lpSlideDots{
+      position:absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display:flex;
+      gap: 4px;
+    }
+    #screenStart .lpSlideDots .dot{
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #ccc;
+      transition: background 0.3s;
+    }
+    #screenStart .lpSlideDots .dot.active{ background: var(--green); }
+
+    #screenStart .lpHeadline{
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+    }
+
+    #screenStart .lpHeadline h1{
+      font-family: 'Noto Serif KR', serif;
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.4;
+      color: var(--text-dark);
+      letter-spacing: -0.5px;
+    }
+    #screenStart .lpHeadline h1 em{
+      font-style: normal;
+      color: var(--green);
+    }
+
+    #screenStart .lpHeadline p{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    #screenStart .lpNunaBadge{
+      display:inline-flex;
+      align-items:center;
+      gap: 5px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 20px;
+      margin-top: 12px;
+    }
+
+    /* 혜택 */
+    #screenStart .lpBenefits{
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      animation: lpFadeSlideIn 0.6s ease 0.5s both;
+    }
+
+    #screenStart .lpBenefitsTitle{
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    #screenStart .lpBenefitItem{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--text-dark);
+      border-bottom: 1px solid var(--border);
+    }
+    #screenStart .lpBenefitItem:last-child{ border-bottom: none; }
+
+    #screenStart .lpCheck{
+      width: 22px;
+      height: 22px;
+      background: var(--green);
+      border-radius: 6px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink: 0;
+      font-size: 12px;
+      color: #fff;
+    }
+
+    /* CTA */
+    #screenStart .lpCta{
+      margin-top: 20px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      animation: lpFadeSlideIn 0.6s ease 0.6s both;
+    }
+
+    /* ✅ 기존 전역 button 스타일 덮어쓰기 */
+    #screenStart .lpBtnMain{
+      width: 100%;
+      padding: 18px;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 16px rgba(61,181,106,0.35);
+    }
+    #screenStart .lpBtnMain:hover{
+      transform:none;
+      background: var(--green-dark);
+    }
+
+    #screenStart .lpBtnMain:active{
+      transform: scale(0.98);
+    }
+
+    #screenStart .lpBtnSub{
+      width: 100%;
+      padding: 14px;
+      background: transparent;
+      color: var(--text-mid);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+      transition: border-color 0.2s, transform .1s;
+    }
+    #screenStart .lpBtnSub:hover{
+      transform:none;
+      background: rgba(0,0,0,0.02);
+      border-color: rgba(61,181,106,0.35);
+    }
+    #screenStart .lpBtnSub:active{
+      transform: scale(0.99);
+      border-color: var(--green);
+    }
+
+    #screenStart .lpBtnPreview{
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 6px 0;
+      border-radius: 0;
+      font-size: 13px;
+      color: var(--text-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    #screenStart .lpBtnPreview:hover{
+      transform:none;
+      color: var(--text-mid);
+      background: transparent;
+      border-color: transparent;
+    }
+
+    #screenStart .lpMeta{
+      text-align:center;
+      font-size: 12px;
+      font-weight: 650;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    /* 푸터 */
+    #screenStart .lpFooter{
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* 랜딩 전용 푸터 링크 */
+    #screenStart .lpNav{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap: 8px 16px;
+      padding: 0;
+      margin: 0 0 12px;
+      color: var(--text-light);
+    }
+    #screenStart .lpNav a{
+      font-size: 12px;
+      color: var(--text-light);
+      text-decoration: none;
+      border: none;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+    }
+    #screenStart .lpNav a:hover{
+      color: var(--text-mid);
+      border-color: transparent;
+    }
+
+    #screenStart .lpFooterCopy{
+      text-align:center;
+      font-size: 11px;
+      color: var(--text-light);
+    }
+    #screenStart .lpFooterCopy a{
+      color: var(--text-light);
+      text-decoration:none;
+    }
+    #screenStart .lpFooterCopy a:hover{
+      color: var(--text-mid);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D1YSL1ERDJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-D1YSL1ERDJ');
+  </script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vjczo3haje");
+  </script>
+</head>
+<body>
+  <div id="app" class="wrap">
+    <section class="screen active" id="screenStart">
+      <div class="lpWrap">
+
+        <!-- 헤더 -->
+        <header class="lpHeader">
+          <div class="lpLogo">🌷 꽃을 만지는 누나</div>
+          <button class="lpHeaderCta" id="btnHeaderStart" type="button">추천받기</button>
+        </header>
+
+        <main class="lpMain">
+
+          <!-- 말풍선 -->
+          <div class="lpBubbles">
+            <div class="lpBubble left">💬 "예쁜 걸로 아무거나요..."</div>
+            <div class="lpBubble right">"잘 팔리는 걸로 주세요" 💬</div>
+            <div class="lpBubble left">💬 "화이트데이 꽃 뭐살까?"</div>
+          </div>
+
+          <!-- 히어로 -->
+          <div class="lpHero">
+
+            <!-- 꽃 슬라이드 -->
+            <div class="lpFlowerSlide" id="flowerSlide" aria-label="대표 꽃 슬라이드">
+              <img src="./image/gerbera.png"    alt="거베라" class="active" loading="eager" />
+              <img src="./image/rose.png"       alt="장미" loading="lazy" />
+              <img src="./image/carnation.png"  alt="카네이션" loading="lazy" />
+              <img src="./image/tulip.png"      alt="튤립" loading="lazy" />
+              <img src="./image/lisianthus.png" alt="리시안셔스" loading="lazy" />
+              <img src="./image/ranunculus.png" alt="라넌큘러스" loading="lazy" />
+              <img src="./image/calla.png"      alt="카라" loading="lazy" />
+              <img src="./image/hydrangea.png"  alt="수국" loading="lazy" />
+              <div class="lpSlideDots" id="dots" aria-hidden="true"></div>
+            </div>
+
+            <!-- 헤드라인 -->
+            <div class="lpHeadline">
+              <h1>꽃 취향? 몰라도 돼!<br>누나가 골라줄게.</h1>
+              <p>10년차 꽃집 누나가<br>그 사람 스타일에 맞춰<br>직접 추천.</p>
+              <div class="lpNunaBadge">🌿 10년차 꽃집사장</div>
+            </div>
+
+          </div>
+
+          <!-- 무료 혜택 -->
+          <div class="lpBenefits">
+            <div class="lpBenefitsTitle">무료로 받는 결과 3가지</div>
+            <div class="lpBenefitItem">
+              <div class="lpCheck">✓</div>
+              <span>꽃 추천 (이름, 이미지)</span>
+            </div>
+            <div class="lpBenefitItem">
+              <div class="lpCheck">✓</div>
+              <span>꽃집 DM 복붙 문장 1개</span>
+            </div>
+            <div class="lpBenefitItem">
+              <div class="lpCheck">✓</div>
+              <span>그녀에게 보내는 멘트 1개</span>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="lpCta">
+            <!-- ✅ 기존 기능 버튼 id 유지 -->
+            <button class="lpBtnMain" id="btnStart" type="button">👆 30초로 추천받기</button>
+            <button class="lpBtnSub" id="btnShareSite" type="button">꽃 추천 공유하기 (클릭)</button>
+            <button class="lpBtnPreview" id="btnLoadExample" type="button">예시 결과 미리보기</button>
+            <div class="lpMeta">※ 결과에서 멘트 복사 + 링크 공유 가능</div>
+          </div>
+
+        </main>
+
+        <!-- 푸터 (기존 topInfoPanel/탐색 유지) -->
+        <footer class="lpFooter">
+          <nav class="lpNav lpFooterLinks" aria-label="사이트 탐색">
+            <a href="#" data-info="about">소개</a>
+            <a href="#" data-info="how">이용방법</a>
+            <a href="#" data-info="guide">가이드</a>
+            <a href="#" data-info="faq">FAQ</a>
+            <a href="#" data-info="policy">정책</a>
+            <a href="#" data-info="contact">문의</a>
+          </nav>
+
+          <div class="lpFooterCopy">
+            <a href="https://instagram.com/tone_art" target="_blank" rel="noopener noreferrer">@tone_art</a> · © TONE ART
+          </div>
+          <div style="margin-top:12px; text-align:center; font-size:12px; font-weight:750; color:#999; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+            <a href="/terms.html" style="color:#999; text-decoration:underline; text-underline-offset:3px;">이용약관</a>
+            <a href="/privacy.html" style="color:#999; text-decoration:underline; text-underline-offset:3px;">개인정보처리방침</a>
+            <a href="/refund.html" style="color:#999; text-decoration:underline; text-underline-offset:3px;">서비스제공/환불규정</a>
+          </div>
+
+          <section id="topInfoPanel" class="topInfoPanel" aria-live="polite">
+            <div class="topInfoHead">
+              <h2 id="topInfoTitle">안내</h2>
+              <button class="secondary" id="btnCloseTopInfo" type="button">닫기</button>
+            </div>
+            <div id="topInfoBody" class="topInfoBody"></div>
+          </section>
+        </footer>
+
+      </div>
+    </section>
+
+    <section class="screen" id="screenQuiz">
+      <div class="card">
+        <div class="hd">
+          <h2 id="quizTitle">선택</h2>
+          <span class="pill" id="quizPill">친한 누나 모드</span>
+        </div>
+        <div class="bd">
+          <div class="progressWrap">
+            <div class="progressTop">
+              <span id="stepText">1/6</span>
+              <span id="stepHint">선택하면 다음으로 넘어가요</span>
+            </div>
+            <div class="bar"><div id="barFill"></div></div>
+          </div>
+
+          <h2 class="q" id="qText">Q. 질문</h2>
+          <p class="sub" id="qSub">설명</p>
+
+          <div class="options" id="options"></div>
+
+          <div class="btnrow">
+            <button class="secondary" id="btnBack" type="button">이전</button>
+      <button id="btnNext" type="button" style="display:none;">다음</button>
+            <button class="secondary" id="btnRestart" type="button">처음으로</button>
+          </div>
+
+          <div class="footnote" id="quizFootnote"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screenResult">
+      <div class="card">
+        <div class="hd">
+          <h2 class="resultTitle">꽃집 누나 PICK! <span class="proBadge">PRO 결과</span></h2>
+          <span class="pill">꽃다발+멘트 완성</span>
+        </div>
+        <div class="bd" id="resultArea"></div>
+      </div>
+    </section>
+
+    <div id="toast" class="toast">복사했어!</div>
+  </div><!-- /#app -->
+
+  <div id="vipGateModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:10000; align-items:center; justify-content:center; padding:16px;">
+    <div style="width:min(420px, 100%); background:#fff; border-radius:16px; padding:16px; box-shadow:0 20px 50px rgba(0,0,0,.18);">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+        <div style="font-weight:900; font-size:16px;">🔒 시크릿 코드 입력</div>
+        <button id="vipGateClose" class="secondary" type="button">닫기</button>
+      </div>
+
+      <div style="margin-top:10px; font-size:13px; color:#475569; font-weight:750; line-height:1.5;">
+        인스타 DM으로 받은 코드를 입력하면 시크릿 가이드가 열려요.
+      </div>
+
+      <input id="vipGateInput" type="text" placeholder="" autocomplete="off"
+        style="margin-top:12px; width:100%; padding:12px 12px; border-radius:12px; border:1px solid #e5e7eb; font-weight:900; font-size:16px; letter-spacing:.5px; text-transform:uppercase;" />
+
+      <button id="vipGateSubmit" type="button" style="margin-top:10px; width:100%;">코드 확인</button>
+
+      <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+        <button id="vipGateCopyDm" class="secondary" type="button" style="flex:1;">DM 요청 문구 복사</button>
+        <button id="vipGateGoInsta" class="secondary" type="button" style="flex:1;">인스타로 가기</button>
+      </div>
+
+      <div id="vipGateError" style="margin-top:10px; display:none; color:#dc2626; font-weight:900; font-size:13px;">
+        코드가 맞지 않아요. DM으로 코드 받아서 입력해줘!
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const byId = (id) => document.getElementById(id);
+    let startSliderControl = null;
+    const PG_READY = false; // ✅ 나중에 PG 붙으면 true로
+    let enteredVipCode = "";       // ✅ 사용자가 입력한 시크릿 코드
+    const VIP_GATE_ENABLED = true; // ✅ 게이트 켤지 말지
+    let runVipFlow = null;
+
+    function initStartSlider(){
+      const frame = byId('flowerSlide');
+      if(!frame) return;
+
+      const slides = Array.from(frame.querySelectorAll('img'));
+      if(slides.length < 2) return;
+
+      // active 없으면 0번 활성화
+      let idx = slides.findIndex(img => img.classList.contains('active'));
+      if(idx < 0){
+        idx = 0;
+        slides[0].classList.add('active');
+      }
+
+      const dotsW = byId('dots');
+      let dots = [];
+
+      function goTo(n){
+        slides[idx].classList.remove('active');
+        if(dots[idx]) dots[idx].classList.remove('active');
+
+        idx = (n + slides.length) % slides.length;
+
+        slides[idx].classList.add('active');
+        if(dots[idx]) dots[idx].classList.add('active');
+      }
+
+      // dots 생성
+      if(dotsW){
+        dotsW.innerHTML = '';
+        slides.forEach((_, i)=>{
+          const d = document.createElement('div');
+          d.className = 'dot' + (i === idx ? ' active' : '');
+          d.addEventListener('click', ()=> goTo(i));
+          dotsW.appendChild(d);
+        });
+        dots = Array.from(dotsW.querySelectorAll('.dot'));
+      }
+
+      let timer = null;
+      const startAuto = () => {
+        if(timer) return;
+        timer = setInterval(()=> goTo(idx + 1), 1000);
+      };
+      const stopAuto = () => {
+        if(!timer) return;
+        clearInterval(timer);
+        timer = null;
+      };
+      startSliderControl = { start: startAuto, stop: stopAuto };
+      startAuto();
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function nl2brSafe(text){
+      // 1) HTML escape 2) 줄바꿈만 <br>로 변환
+      return escapeHtml(text || '').replace(/\n/g, '<br>');
+    }
+
+    function sanitizeUrl(url){
+      try{
+        const base = document.baseURI || location.href; // 서브디렉토리 배포 대응
+        const u = new URL(String(url || ''), base);
+        const allowed = ['http:', 'https:'];
+        if(!allowed.includes(u.protocol)) return '';
+        return u.href;
+      }catch(e){
+        return '';
+      }
+    }
+
+    function sanitizeApiImageUrl(url){
+      const raw = String(url || '').trim();
+      if(!raw) return '';
+
+      // API 생성 이미지는 data URL을 허용하되, SVG는 제외
+      if(raw.startsWith('data:')){
+        const okDataPrefix = /^data:image\/(png|jpeg|jpg|webp);base64,/i;
+        return okDataPrefix.test(raw) ? raw : '';
+      }
+
+      return sanitizeUrl(raw);
+    }
+
+    function sanitizeHex(hex){
+      const h = String(hex || '').trim();
+      // #RGB 또는 #RRGGBB만 허용
+      if(/^#([0-9a-fA-F]{3}){1,2}$/.test(h)) return h;
+      return '#22c55e'; // fallback
+    }
+
+    function toast(msg){
+      const el = $('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(()=> el.classList.remove('show'), 1200);
+    }
+
+    async function copyText(text){
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      }catch(e){}
+      try{
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        ta.style.top = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      }catch(e){
+        return false;
+      }
+    }
+
+    function normalizeVipCode(v){
+      return String(v || '').trim().toUpperCase().replace(/\s+/g,'');
+    }
+
+    function openVipGate(){
+      const modal = document.getElementById('vipGateModal');
+      const input = document.getElementById('vipGateInput');
+      const err = document.getElementById('vipGateError');
+      if(!modal || !input) return;
+      if(err) err.style.display = 'none';
+      input.value = '';
+      modal.style.display = 'flex';
+      input.focus();
+    }
+
+    function closeVipGate(){
+      const modal = document.getElementById('vipGateModal');
+      if(modal) modal.style.display = 'none';
+    }
+
+    async function downloadImage(url, filename){
+      if(!url) return;
+      try{
+        const res = await fetch(url, { mode: 'cors' });
+        if(!res.ok) throw new Error('image fetch failed');
+        const blob = await res.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename || 'flower_image.png';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(()=> URL.revokeObjectURL(blobUrl), 1000);
+      }catch(e){
+        window.open(url, '_blank');
+        toast('이미지를 길게 눌러 저장해줘!');
+      }
+    }
+
+    function base64UrlEncode(obj){
+      const json = JSON.stringify(obj);
+      const bytes = new TextEncoder().encode(json);
+      let bin = '';
+      for (const b of bytes) bin += String.fromCharCode(b);
+      const b64 = btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+      return b64;
+    }
+
+    function base64UrlDecode(str){
+      const b64 = str.replace(/-/g,'+').replace(/_/g,'/');
+      const pad = b64 + '==='.slice((b64.length + 3) % 4);
+      const bin = atob(pad);
+      const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+      const json = new TextDecoder().decode(bytes);
+      return JSON.parse(json);
+    }
+
+    function showScreen(which){
+      ['screenStart','screenQuiz','screenResult'].forEach(id=>{
+        $(id).classList.toggle('active', id === which);
+      });
+      if(startSliderControl){
+        if(which === 'screenStart') startSliderControl.start();
+        else startSliderControl.stop();
+      }
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    const topInfoMap = {
+      about: {
+        title: '소개',
+        lines: [
+          '꽃 선택이 어려운 분들을 위해 10년차 플로리스트 누나가 30초 만에 취향을 분석해 드립니다.',
+          '기본 추천과 꽃집 주문 멘트는 무료로 제공되며, 더 완벽한 선물을 위한 상세 가이드(이미지, 맞춤 멘트, 컬러 팔레트 등)는 유료로 제공됩니다.'
+        ]
+      },
+      how: {
+        title: '이용방법',
+        lines: [
+          '1) 질문에 답하기: 받는 분과의 관계, 상황, 무드를 고릅니다.',
+          '2) 결과 확인: 무료로 추천 꽃과 기본 멘트를 확인합니다.',
+          '3) 디테일 확인(선택): 유료 결제 시 시안 이미지와 상세 포장 가이드를 확인합니다.',
+          '4) 꽃집 전달: 복사한 주문 문장으로 내 주변 꽃집에 빠르고 정확하게 주문합니다.'
+        ]
+      },
+      guide: {
+        title: '가이드',
+        lines: [
+          '주문 핵심은 "무드 + 톤 + 주의사항" 3가지를 함께 말하는 것입니다.',
+          '제공해 드리는 주문 문장을 그대로 복사해서 보내시면 가장 정확합니다.',
+          '꽃집 방문 전 향/알레르기/피하고 싶은 꽃이 있다면 꼭 한 번 더 말씀해 주세요.'
+        ]
+      },
+      faq: {
+        title: 'FAQ',
+        lines: [
+          'Q. 실제 꽃이 배송되는 건가요?',
+          'A. 아닙니다. 본 서비스는 꽃집에 직접 주문할 수 있도록 "맞춤형 꽃 디자인과 주문 멘트"를 제공하는 디지털 가이드입니다.',
+          'Q. 유료 결제하면 무엇이 좋나요?',
+          'A. 텍스트로만 제공되던 무료 결과에 더해, 참고용 꽃다발 이미지, 상황별 디테일 멘트 3종, 플로리스트용 고급 주문서가 추가로 열람됩니다.',
+          'Q. 결제 후 환불이 되나요?',
+          'A. 디지털 콘텐츠 특성상 결제 완료 즉시 결과가 노출되므로 결제 이후에는 환불이 불가합니다.'
+        ]
+      },
+      policy: {
+        title: '정책',
+        lines: [
+          '무료 결과는 브라우저 내에서 처리됩니다.',
+          '시크릿 가이드 요청 시(코드 입력 후) 결과 생성 목적으로 선택 정보가 서버로 전송될 수 있습니다.',
+          '환불정책: 본 서비스는 즉시 열람되는 디지털 상품으로 전자상거래법에 의거 결제 후 환불이 제한됩니다.',
+          '상세 정책은 하단의 이용약관 및 개인정보처리방침을 확인해 주세요.'
+        ]
+      },
+      contact: {
+        title: '문의',
+        lines: [
+          '결제 오류 및 서비스 이용 문의는 아래 이메일로 부탁드립니다.',
+          '• 이메일: tone_art@hanmail.net',
+          '• 상담시간: 평일 10:00 ~ 17:00 (주말 및 공휴일 휴무)',
+          '순차적으로 확인하여 답변 드리겠습니다.'
+        ]
+      }
+    };
+
+    function initTopInfoPanel(){
+      const panel = $('topInfoPanel');
+      const titleEl = $('topInfoTitle');
+      const bodyEl = $('topInfoBody');
+      const closeBtn = $('btnCloseTopInfo');
+      if(!panel || !titleEl || !bodyEl) return;
+
+      const links = Array.from(document.querySelectorAll('.lpFooterLinks a[data-info]'));
+      let openKey = '';
+
+      const hidePanel = () => {
+        panel.classList.remove('active');
+        openKey = '';
+      };
+
+      links.forEach((link)=>{
+        link.addEventListener('click', (e)=>{
+          e.preventDefault();
+          const key = link.dataset.info || '';
+          const data = topInfoMap[key];
+          if(!data) return;
+          if(openKey === key){
+            hidePanel();
+            return;
+          }
+          titleEl.textContent = data.title;
+          bodyEl.innerHTML = data.lines.map((line)=> `<p>${escapeHtml(line)}</p>`).join('');
+          panel.classList.add('active');
+          openKey = key;
+        });
+      });
+
+      if(closeBtn){
+        closeBtn.addEventListener('click', hidePanel);
+      }
+    }
+
+    const steps = [
+      {
+        id:'relation',
+        type:'single',
+        title:'어, 누구한테 줄 거야? 🌷',
+        sub:'누구한테 줄지만 고르면 분위기 바로 맞춰줄게.',
+        options:[
+          {value:'썸/소개팅', title:'썸/소개팅', desc:'가볍고 센스 있게'},
+          {value:'여자친구(연인)', title:'여자친구', desc:'다정하고 설레게'},
+          {value:'아내/배우자', title:'아내', desc:'고맙고 든든하게'},
+          {value:'친구/동료', title:'친구/직장동료', desc:'편하고 깔끔하게'}
+        ]
+      },
+      {
+        id:'occasion',
+        type:'single',
+        title:'무슨 일이야? 말해봐.',
+        sub:'주는 이유만 알려줘. 상황에 맞게 톤 잡아줄게.',
+        options:[
+          {value:'생일/기념일', title:'생일/기념일', desc:'특별한 날 기분 좋게 축하'},
+          {value:'사과(미안해)', title:'미안해서', desc:'부담 없이 진심 전달'},
+          {value:'축하(합격/승진/새출발)', title:'합격/승진 축하', desc:'응원과 축하 전달'},
+          {value:'첫 선물', title:'처음 주는 꽃', desc:'안전하게 시작'},
+          {value:'그냥(고맙고 응원)', title:'그냥 고마워서', desc:'편하게 마음 전달'}
+        ]
+      },
+      {
+        id:'style',
+        type:'single',
+        title:'그 사람 어떤 스타일이야?',
+        sub:'평소 느낌 떠올리고 제일 가까운 쪽으로 골라줘.',
+        options:[
+          {value:'soft_feminine', title:'청순/여리한', desc:'맑고 부드러운 분위기'},
+          {value:'romantic', title:'러블리한', desc:'달콤하고 사랑스러운 분위기'},
+          {value:'chic_elegant', title:'세련/도시적 · 우아', desc:'모던하고 품격 있는 분위기'},
+          {value:'trendy', title:'트렌디/힙한', desc:'감각적이고 쿨한 분위기'},
+          {value:'minimal', title:'미니멀/깔끔한', desc:'담백하고 절제된 분위기'}
+        ]
+      },
+      {
+        id:'palette',
+        type:'single',
+        title:'색감은? 옷이나 방 생각해봐.',
+        sub:'평소 옷이나 방 톤 생각해서 제일 비슷한 색으로 골라줘.',
+        options:[
+          { value: 'white_green',   title: '화이트·그린 🤍🌿', desc: '깔끔/정돈/미니멀' },
+          { value: 'pink_peach',    title: '핑크·피치 🩷🍑', desc: '부드럽고 러블리' },
+          { value: 'lilac',         title: '연보라·라일락 💜🫧', desc: '쿨하고 감성' },
+          { value: 'red_wine',      title: '레드·버건디 ❤️🍷', desc: '로맨틱/확실한 포인트' },
+          { value: 'yellow_orange', title: '옐로·오렌지 💛🧡', desc: '기분 업/발랄' }
+        ]
+      },
+      {
+        id:'photoHabit',
+        type:'single',
+        title:'사진 잘 찍어? SNS에 자주 올려?',
+        sub:'포장/ 연출 스타일이 달라져.',
+        options:[
+          { value: 'sns_often', title: 'SNS에 자주 올림', desc: '피드/스토리 자주' },
+          { value: 'sns_sometimes', title: '가끔 올림', desc: '기념일/특별한 날' },
+          { value: 'private_photo', title: '찍긴 하는데 올리진 않음', desc: '기록용/개인 소장' },
+          { value: 'no_photo', title: '사진 관심 없음', desc: '받으면 바로 끝' }
+        ]
+      },
+      {
+        id:'cautions',
+        type:'multi',
+        title:'혹시 꼭 알아야 할거 있어?',
+        sub:'해당되는 것만 체크해줘. 없으면 “없음”. (복수 선택 가능)',
+        options:[
+          {value:'scent_light', title:'향은 약한 쪽이 좋아요', desc:'향 민감'},
+          {value:'allergy_sensitive', title:'알레르기/민감이 있어요', desc:'꽃가루/향 최소'},
+          {value:'no_rose', title:'장미는 다른 꽃이면 더 좋아요', desc:'취향/기억'},
+          {value:'clean_over_flashy', title:'화려함보단 깔끔한 게 좋아요', desc:'톤 줄이면 안전'},
+          {value:'none', title:'없음', desc:'특별한 주의 없음'}
+        ]
+      }
+    ];
+
+    const allowedValues = steps.reduce((acc, step) => {
+      acc[step.id] = new Set(step.options.map(o => o.value));
+      return acc;
+    }, {});
+
+    function sanitizeLoadedState(raw){
+      const normalized = {
+        relation: null,
+        occasion: null,
+        palette: null,
+        photoHabit: null,
+        style: null,
+        cautions: []
+      };
+
+      if (!raw || typeof raw !== 'object') return normalized;
+
+      const legacyStyleMap = {
+        chic: 'chic_elegant',
+        elegant: 'chic_elegant'
+      };
+
+      ['relation', 'occasion', 'palette', 'photoHabit', 'style'].forEach((key)=>{
+        const value = raw[key];
+        const resolved = (key === 'style' && legacyStyleMap[value]) ? legacyStyleMap[value] : value;
+        normalized[key] = allowedValues[key].has(resolved) ? resolved : null;
+      });
+
+      const cautions = Array.isArray(raw.cautions) ? raw.cautions : [];
+      const safeCautions = cautions.filter(v => allowedValues.cautions.has(v));
+      if(safeCautions.includes('none')) normalized.cautions = ['none'];
+      else normalized.cautions = safeCautions;
+
+      return normalized;
+    }
+
+    function fallbackSampleImage(concept){
+      const safe = escapeHtml(concept || '추천 컨셉');
+      const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dcfce7"/>
+      <stop offset="100%" stop-color="#bbf7d0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <text x="50%" y="48%" text-anchor="middle" font-size="44" font-family="sans-serif" fill="#166534">샘플 사진 준비중</text>
+  <text x="50%" y="56%" text-anchor="middle" font-size="34" font-family="sans-serif" fill="#166534">${safe}</text>
+</svg>`;
+      return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    }
+
+    const state = {
+      relation:null,
+      occasion:null,
+      palette:null,
+      photoHabit:null,
+      style:null,
+      cautions:[]
+    };
+
+    function clearState(){
+      state.relation = null;
+      state.occasion = null;
+      state.palette = null;
+      state.photoHabit = null;
+      state.style = null;
+      state.cautions = [];
+    }
+
+    function clearStickyPadding(){
+      document.body.style.paddingBottom = '';
+    }
+
+    let stepIdx = 0;
+    function currentStep(){ return steps[stepIdx]; }
+
+    function setAnswer(stepId, value){
+      const step = steps.find(s => s.id === stepId);
+      if(step && step.type === 'multi'){
+        const current = Array.isArray(state[stepId]) ? [...state[stepId]] : [];
+        const idx = current.indexOf(value);
+        if(idx >= 0){
+          current.splice(idx, 1);
+        }else{
+          if(value === 'none'){
+            current.length = 0;
+            current.push('none');
+          }else{
+            const noneIdx = current.indexOf('none');
+            if(noneIdx >= 0) current.splice(noneIdx, 1);
+            current.push(value);
+          }
+        }
+        state[stepId] = current;
+        return;
+      }
+      state[stepId] = value;
+    }
+
+    function getAnswer(stepId){
+      return state[stepId];
+    }
+
+    function canGoNext(){
+      const s = currentStep();
+      const ans = getAnswer(s.id);
+      if(s.type === 'multi') return Array.isArray(ans) ? ans.length > 0 : !!ans;
+      return !!ans;
+    }
+
+    function updateProgress(){
+      $('stepText').textContent = `${stepIdx+1}/${steps.length}`;
+      const pct = Math.max(10, Math.round((stepIdx / (steps.length - 1)) * 100));
+      $('barFill').style.width = `${pct}%`;
+
+      $('stepHint').textContent = (currentStep().type === 'multi')
+        ? '복수 선택 후 “다음” 필수'
+        : '선택하면 다음으로 넘어가요';
+    }
+
+    function renderStep(){
+      const s = currentStep();
+
+      $('quizTitle').textContent = `Q${stepIdx+1}`;
+      $('qText').textContent = `Q. ${s.title}`;   // ✅ Q. 붙이기
+      $('qSub').textContent = s.sub || '';
+      $('quizFootnote').textContent = s.footnote || '';
+
+      updateProgress();
+
+      $('btnBack').style.visibility = (stepIdx === 0) ? 'hidden' : 'visible';
+      $('btnNext').style.display = (s.type === 'multi') ? 'inline-flex' : 'none';
+      if(s.type === 'multi'){
+        // 다음 버튼은 항상 클릭 가능하게 두고, 유효성은 goNext에서 체크
+        $('btnNext').disabled = false;
+        $('btnNext').removeAttribute('aria-disabled');
+        $('btnNext').style.visibility = 'visible';
+        $('btnNext').style.pointerEvents = 'auto';
+      }else{
+        $('btnNext').disabled = false;
+        $('btnNext').removeAttribute('aria-disabled');
+      }
+
+      const opts = $('options');
+      opts.innerHTML = '';
+      opts.className = 'options';
+
+      const selected = getAnswer(s.id);
+
+      s.options.forEach((opt)=>{
+        // ✅ "없음" 옵션은 위에 구분선(옵션 박스 밖에 따로)
+        if(s.id === 'cautions' && opt.value === 'none'){
+          const hr = document.createElement('div');
+          hr.className = 'noneDivider';
+          hr.setAttribute('aria-hidden','true');
+          opts.appendChild(hr);
+        }
+
+        const div = document.createElement('div');
+        div.className = 'opt';
+
+        const isSelected = (s.type === 'multi')
+          ? (selected || []).includes(opt.value)
+          : (selected === opt.value);
+
+        div.dataset.selected = isSelected ? 'true' : 'false';
+
+        div.innerHTML = `
+          <div>
+            <div class="title">${escapeHtml(opt.title)}</div>
+            ${opt.desc ? `<div class="desc">${escapeHtml(opt.desc)}</div>` : ''}
+          </div>
+        `;
+
+        div.addEventListener('click', ()=>{
+          setAnswer(s.id, opt.value);
+          renderStep();
+          if(s.type !== 'multi') setTimeout(()=>goNext(), 120);
+        });
+
+        opts.appendChild(div);
+      });
+    }
+
+    function goNext(){
+      if(!canGoNext()){
+        alert('이 질문에서 하나를 선택해줘!');
+        return;
+      }
+      if(stepIdx < steps.length - 1){
+        stepIdx += 1;
+        renderStep();
+      }else{
+        showResult();
+      }
+    }
+
+    function goBack(){
+      if(stepIdx > 0){
+        stepIdx -= 1;
+        renderStep();
+      }
+    }
+
+    function clearOnlyResultParam(){
+      const url = new URL(location.href);
+      if(!url.searchParams.has('r')) return;
+      url.searchParams.delete('r');
+      history.replaceState(null, '', url.toString());
+    }
+
+    function resetAll(){
+      clearState();
+      clearStickyPadding();
+      stepIdx = 0;
+      clearOnlyResultParam();
+      const sp = document.querySelector('.service-period');
+      if(sp) sp.style.removeProperty('display');
+      showScreen('screenStart');
+    }
+
+    /* ===== 아래 로직(결과 생성)은 너 코드 그대로 유지 ===== */
+    const profiles = {
+      '러블리': {
+        concept: '핑크 무드 러블리',
+        mood: ['따뜻', '사랑스러움', '부드러움'],
+        tone: '핑크/크림/연한 코랄 중심',
+        wrap: '파스텔 포장 + 얇은 리본(과하지 않게)',
+        flowers: { main: ['튤립','라넌큘러스','리시안셔스(유스토마)','거베라(핑크)','장미'], sub: ['스프레이 카네이션','알스트로메리아'], texture: ['유칼립투스','왁스플라워'] },
+        meaning: '‘다정함’과 ‘설렘’ 무드'
+      },
+      '세련됨': {
+        concept: '도시적 미니 시크',
+        mood: ['깔끔', '세련', '정돈'],
+        tone: '화이트/그린 + 톤다운 포인트',
+        wrap: '무광 종이 + 톤다운 포장(정돈된 느낌)',
+        flowers: { main: ['리시안셔스(화이트)','카라(칼라)','아네모네','튤립(화이트)','수국'], sub: ['알스트로메리아','스카비오사'], texture: ['유칼립투스','러스커스(그린)'] },
+        meaning: '‘존중’과 ‘센스’ 무드'
+      },
+      '귀여움': {
+        concept: '상큼 발랄 팝',
+        mood: ['발랄', '명랑', '귀여움'],
+        tone: '밝은 컬러(옐로/핑크/라이트 오렌지) 1~2색',
+        wrap: '컬러 포인트 포장(과하지 않게)',
+        flowers: { main: ['거베라','튤립','라넌큘러스','카네이션'], sub: ['알스트로메리아','스프레이 카네이션'], texture: ['유칼립투스','왁스플라워'] },
+        meaning: '‘기분 업’과 ‘응원’ 무드'
+      },
+      '미니멀': {
+        concept: '심플 담백 원톤',
+        mood: ['심플', '담백', '차분'],
+        tone: '원톤(화이트/크림/연핑크 중 1) + 그린 최소',
+        wrap: '무광/크라프트 계열 + 리본 최소',
+        flowers: { main: ['리시안셔스(유스토마)','튤립','아네모네','수국'], sub: ['알스트로메리아'], texture: ['유칼립투스','러스커스(그린)'] },
+        meaning: '‘편안함’과 ‘정성’ 무드'
+      },
+      '우아함': {
+        concept: '차분한 고급 무드',
+        mood: ['우아', '차분', '고급'],
+        tone: '크림/화이트/톤다운 핑크 + 그린',
+        wrap: '톤다운 포장 + 고급스러운 리본(과하지 않게)',
+        flowers: { main: ['리시안셔스(유스토마)','라넌큘러스','튤립','카라(칼라)','장미'], sub: ['스카비오사','알스트로메리아'], texture: ['유칼립투스','왁스플라워'] },
+        meaning: '‘품격’과 ‘존중’ 무드'
+      },
+      '활기': {
+        concept: '밝은 에너지 업',
+        mood: ['에너지', '밝음', '활기'],
+        tone: '옐로/라이트 오렌지 + 화이트로 정리',
+        wrap: '밝은 포인트 포장 + 깔끔한 마감',
+        flowers: { main: ['해바라기','거베라','튤립','수국'], sub: ['알스트로메리아','스프레이 카네이션'], texture: ['유칼립투스','러스커스(그린)'] },
+        meaning: '‘응원’과 ‘기분전환’ 무드'
+      }
+    };
+
+    function normalizeStyle(style){
+      if(style === 'cute' || style === 'romantic' || style === 'soft_feminine') return 'cute';
+      if(style === 'chic' || style === 'minimal' || style === 'elegant' || style === 'chic_elegant' || style === 'trendy') return 'chic';
+      return 'chic';
+    }
+
+    function mapPersonality(style, palette, occasion, photoHabit){
+      const s = normalizeStyle(style);
+
+      if(style === 'trendy'){
+        if(palette === 'yellow_orange' || occasion === '축하(합격/승진/새출발)') return '활기';
+        return '귀여움';
+      }
+      if(style === 'romantic') return '러블리';
+      if(style === 'soft_feminine'){
+        if(palette === 'lilac' || palette === 'red_wine') return '우아함';
+        return '러블리';
+      }
+      if(style === 'minimal'){
+        if(palette === 'white_green' || photoHabit === 'no_photo') return '미니멀';
+        return '세련됨';
+      }
+      if(s === 'chic'){
+        if(palette === 'yellow_orange') return '활기';
+        if(palette === 'lilac' || palette === 'red_wine') return '우아함';
+        if(palette === 'pink_peach' && occasion === '생일/기념일') return '러블리';
+        if(palette === 'white_green' || photoHabit === 'no_photo') return '미니멀';
+        return '세련됨';
+      }
+
+      if(s === 'cute') return '귀여움';
+      return '세련됨';
+    }
+
+    function hashString(input){
+      let h = 2166136261;
+      const str = String(input || '');
+      for(let i=0; i<str.length; i++){
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return (h >>> 0);
+    }
+
+    function rotatePick(pool, count, seed){
+      const list = Array.isArray(pool) ? pool.filter(Boolean) : [];
+      if(list.length <= count) return list.slice();
+      const start = seed % list.length;
+      const rotated = list.slice(start).concat(list.slice(0, start));
+      return rotated.slice(0, count);
+    }
+
+    function pickFlowers(profile, currentState){
+      const seedBase = [
+        currentState.relation,
+        currentState.occasion,
+        currentState.style,
+        currentState.palette,
+        currentState.photoHabit,
+        (currentState.cautions || []).join(',')
+      ].join('|');
+      const seed = hashString(seedBase);
+
+      const mainPool = profile.flowers.main || ['리시안셔스(유스토마)','튤립','장미'];
+      const subPool = profile.flowers.sub || ['알스트로메리아','스프레이 카네이션'];
+      const texPool = profile.flowers.texture || ['유칼립투스','러스커스(그린)'];
+
+      const main = rotatePick(mainPool, 2, seed + 11);
+      const sub = rotatePick(subPool, 2, seed + 23);
+      const tex = rotatePick(texPool, 2, seed + 37);
+      return { main, sub, tex };
+    }
+
+    function buildMessages({ relation, occasion, flowerName }) {
+      const relKey = relation || '여자친구(연인)';
+      const occKey = occasion || '그냥(고맙고 응원)';
+      const f = flowerName ? ` ${flowerName} 느낌으로` : '';
+
+      const base = {
+        '썸/소개팅': {
+          simple: `너 생각나서${f} 가져왔어.`,
+          sense: `너랑 잘 어울릴 것 같아서${f} 골라봤어.`,
+          sincere: `부담은 말고… 오늘 기분 조금이라도 좋아졌으면 해서.`
+        },
+        '여자친구(연인)': {
+          simple: `네가 좋아할 것 같아서${f} 챙겨왔어.`,
+          sense: `오늘은 고맙다는 말, 꽃으로 대신할게.`,
+          sincere: `요즘 네 덕분에 참 좋아. 그래서 더 예쁘게 전하고 싶었어.`
+        },
+        '아내/배우자': {
+          simple: `이걸로 고마움 전할게요.`,
+          sense: `당신이 좋아할 느낌으로 정리해서 골라봤어요.`,
+          sincere: `늘 고맙고 존중해요. 말로 다 못한 마음을 꽃으로 전할게요.`
+        },
+        '친구/동료': {
+          simple: `수고했어. 이거 받아!`,
+          sense: `요즘 고생한 거 알아서… 기분 전환하라고 챙겼어.`,
+          sincere: `항상 고마워. 네가 잘 되면 진짜 좋겠어.`
+        },
+        '가족': {
+          simple: `생각나서 챙겼어.`,
+          sense: `가족이니까 더 담백하게, 대신 정성은 확실히.`,
+          sincere: `늘 든든해서 고마워. 마음 전하고 싶었어.`
+        }
+      };
+
+      const tails = {
+        '생일/기념일': {
+          simple: ` 오늘은 네 날이니까.`,
+          sense: ` 오늘이 오래 기억에 남았으면 좋겠어.`,
+          sincere: ` 같이한 시간들이 더 소중하게 느껴지는 날이라서.`
+        },
+        '사과(미안해)': {
+          simple: ` 내가 미안해. 다음부턴 더 잘할게.`,
+          sense: ` 말보다 행동이 먼저일 것 같아서.`,
+          sincere: ` 내가 놓친 부분이 있었어. 진심으로 미안해.`
+        },
+        '축하(합격/승진/새출발)': {
+          simple: ` 진짜 고생했어. 축하해!`,
+          sense: ` 네 노력한 거 다 봤어. 정말 멋지다.`,
+          sincere: ` 너라면 해낼 줄 알았어. 앞으로 더 잘될 거야.`
+        },
+        '첫 선물': {
+          simple: ` 처음이라 더 고민했어.`,
+          sense: ` 부담은 줄이고, 대신 센스는 확실히 담고 싶었어.`,
+          sincere: ` 오늘을 좋은 기억으로 남기고 싶어서, 이렇게 전해.`
+        },
+        '그냥(고맙고 응원)': {
+          simple: ` 그냥 네 생각나서.`,
+          sense: ` 요즘 고생 많지? 응원하고 싶었어.`,
+          sincere: ` 늘 고맙고, 네가 잘 됐으면 하는 마음이야.`
+        }
+      };
+
+      const rel = base[relKey] || base['여자친구(연인)'];
+      const tail = tails[occKey] || { simple:'', sense:'', sincere:'' };
+
+      return {
+        simple: (rel.simple + tail.simple).trim(),
+        sense: (rel.sense + tail.sense).trim(),
+        sincere: (rel.sincere + tail.sincere).trim()
+      };
+    }
+
+    function chooseMessageTone(relation, occasion){
+      // 사과/배우자는 진지한 톤이 성공 확률 높음
+      if(occasion === '사과(미안해)') return 'sincere';
+      if(relation === '아내/배우자') return 'sincere';
+
+      // 썸은 너무 무겁지 않게 "센스" 추천
+      if(relation === '썸/소개팅') return 'sense';
+
+      // 축하는 에너지 있게
+      if(occasion === '축하(합격/승진/새출발)') return 'sense';
+
+      // 첫 선물은 부담 줄이는 문장
+      if(occasion === '첫 선물') return 'simple';
+
+      return 'simple';
+    }
+
+    /* ===== FREE 대표 꽃 1송이 정밀 매핑 ===== */
+    const flowerAssetByKey = {
+      rose: { name: '장미', img: 'image/rose.png' },
+      calla: { name: '카라(칼라)', img: 'image/calla.png' },
+      gerbera: { name: '거베라', img: 'image/gerbera.png' },
+      lisianthus: { name: '리시안셔스', img: 'image/lisianthus.png' },
+      tulip: { name: '튤립', img: 'image/tulip.png' },
+      ranunculus: { name: '라넌큘러스', img: 'image/ranunculus.png' },
+      carnation: { name: '카네이션', img: 'image/carnation.png' },
+      hydrangea: { name: '수국', img: 'image/hydrangea.png' }
+    };
+
+    const flowerKeyOrder = ['rose', 'calla', 'gerbera', 'lisianthus', 'tulip', 'ranunculus', 'carnation', 'hydrangea'];
+
+    function flowerKeyFromText(text){
+      const t = String(text || '');
+      if(t.includes('장미')) return 'rose';
+      if(t.includes('카라') || t.includes('칼라')) return 'calla';
+      if(t.includes('거베라')) return 'gerbera';
+      if(t.includes('리시안셔스') || t.includes('유스토마')) return 'lisianthus';
+      if(t.includes('튤립')) return 'tulip';
+      if(t.includes('라넌큘러스')) return 'ranunculus';
+      if(t.includes('카네이션')) return 'carnation';
+      if(t.includes('수국')) return 'hydrangea';
+      return null;
+    }
+
+    function addWeightedScores(scoreMap, keys, weight){
+      (keys || []).forEach((key)=>{
+        if(!scoreMap[key]) scoreMap[key] = 0;
+        scoreMap[key] += weight;
+      });
+    }
+
+    function getMainFlowerAsset({ personality, state, mainList }){
+      const scores = {};
+      flowerKeyOrder.forEach((key)=>{ scores[key] = 0; });
+
+      const personalityBoost = {
+        '러블리': ['ranunculus', 'rose', 'carnation'],
+        '귀여움': ['gerbera', 'tulip', 'carnation'],
+        '활기': ['tulip', 'gerbera', 'hydrangea'],
+        '세련됨': ['calla', 'lisianthus', 'hydrangea'],
+        '미니멀': ['lisianthus', 'calla', 'tulip'],
+        '우아함': ['rose', 'calla', 'hydrangea']
+      };
+      addWeightedScores(scores, personalityBoost[personality], 24);
+
+      const styleBoost = {
+        soft_feminine: ['lisianthus', 'ranunculus', 'tulip'],
+        romantic: ['rose', 'ranunculus', 'carnation'],
+        chic_elegant: ['calla', 'lisianthus', 'hydrangea'],
+        trendy: ['gerbera', 'hydrangea', 'tulip'],
+        minimal: ['lisianthus', 'calla', 'tulip']
+      };
+      addWeightedScores(scores, styleBoost[state.style], 18);
+
+      const paletteBoost = {
+        white_green: ['calla', 'lisianthus', 'hydrangea'],
+        pink_peach: ['rose', 'ranunculus', 'carnation'],
+        lilac: ['hydrangea', 'lisianthus', 'ranunculus'],
+        red_wine: ['rose', 'carnation', 'calla'],
+        yellow_orange: ['gerbera', 'tulip', 'ranunculus']
+      };
+      addWeightedScores(scores, paletteBoost[state.palette], 16);
+
+      const occasionBoost = {
+        '생일/기념일': ['rose', 'ranunculus', 'hydrangea'],
+        '사과(미안해)': ['lisianthus', 'calla', 'tulip'],
+        '축하(합격/승진/새출발)': ['tulip', 'gerbera', 'hydrangea'],
+        '첫 선물': ['tulip', 'lisianthus', 'carnation'],
+        '그냥(고맙고 응원)': ['carnation', 'gerbera', 'tulip']
+      };
+      addWeightedScores(scores, occasionBoost[state.occasion], 14);
+
+      const relationBoost = {
+        '썸/소개팅': ['tulip', 'ranunculus', 'lisianthus'],
+        '여자친구(연인)': ['rose', 'ranunculus', 'hydrangea'],
+        '아내/배우자': ['carnation', 'rose', 'calla'],
+        '친구/동료': ['gerbera', 'tulip', 'lisianthus']
+      };
+      addWeightedScores(scores, relationBoost[state.relation], 10);
+
+      const photoHabitBoost = {
+        sns_often: ['hydrangea', 'gerbera', 'rose'],
+        sns_sometimes: ['hydrangea', 'ranunculus', 'tulip'],
+        private_photo: ['calla', 'lisianthus', 'rose'],
+        no_photo: ['lisianthus', 'tulip', 'carnation']
+      };
+      addWeightedScores(scores, photoHabitBoost[state.photoHabit], 8);
+
+      const cautions = Array.isArray(state.cautions) ? state.cautions : [];
+      if(cautions.includes('no_rose')) scores.rose -= 100;
+      if(cautions.includes('allergy_sensitive') || cautions.includes('scent_light')){
+        scores.rose -= 35;
+        scores.ranunculus -= 12;
+        scores.calla += 12;
+        scores.lisianthus += 12;
+      }
+      if(cautions.includes('clean_over_flashy')){
+        scores.calla += 12;
+        scores.lisianthus += 10;
+        scores.gerbera -= 8;
+        scores.hydrangea -= 4;
+      }
+
+      (mainList || []).forEach((flower, idx)=>{
+        const key = flowerKeyFromText(flower);
+        if(!key) return;
+        scores[key] += (idx === 0 ? 34 : 26);
+      });
+
+      const bestKey = flowerKeyOrder.reduce((best, key)=>{
+        if(scores[key] > scores[best]) return key;
+        return best;
+      }, 'tulip');
+
+      return flowerAssetByKey[bestKey] || flowerAssetByKey.tulip;
+    }
+
+    function showResult(){
+      const personality = mapPersonality(state.style, state.palette, state.occasion, state.photoHabit);
+      const profile = profiles[personality];
+
+      const { main, sub, tex } = pickFlowers(profile, state);
+
+      const styleLabel = {
+        cute:'귀여움',
+        chic:'세련/우아',
+        romantic:'러블리',
+        minimal:'미니멀',
+        soft_feminine:'청순',
+        chic_elegant:'세련/우아',
+        trendy:'트렌디/힙'
+      }[state.style] || '세련/우아';
+
+      const paletteLabel = {
+        white_green:'화이트·그린',
+        pink_peach:'핑크·피치',
+        lilac:'연보라·라일락',
+        red_wine:'레드·버건디',
+        yellow_orange:'옐로·오렌지'
+      }[state.palette] || '미선택';
+
+      // ====== Hero 요약 데이터 만들기 ======
+      const mainAsset = getMainFlowerAsset({
+        personality,
+        state,
+        mainList: main
+      });
+
+      const msgs = buildMessages({
+        relation: state.relation,
+        occasion: state.occasion,
+        flowerName: mainAsset.name // ✅ 무료 1송이 이름을 멘트에 자연스럽게 반영
+      });
+      const toneKey = chooseMessageTone(state.relation, state.occasion);
+      const basicMessage = (msgs && msgs[toneKey]) ? msgs[toneKey] : (msgs.simple || '');
+
+      const basicMoodLine = `'${state.occasion || '오늘'}' 상황엔 깔끔하고 단정한 인상의 ${mainAsset.name}가 잘 어울려요.`;
+      const basicToneLine = state.palette
+        ? `컬러는 ${paletteLabel} 톤으로 맞춰달라고 요청하면 됩니다.`
+        : '컬러는 받는 분 분위기에 맞춰 톤을 정리해달라고 요청하면 됩니다.';
+      const basicOrderSentence = `${mainAsset.name} 중심으로 ${state.palette ? paletteLabel : '어울리는'} 톤으로 예쁘게 해주세요.`;
+
+      // 주의(참고사항) 요약: taboos/cautions가 없거나 none이면 "없음"
+      const rawTaboos = Array.isArray(state.taboos)
+        ? state.taboos
+        : (Array.isArray(state.cautions) ? state.cautions : []);
+      const tabooShortMap = {
+        // 새 value 방식(추천)
+        no_scent: '향 약하게',
+        allergy: '알레르기',
+        no_rose: '장미 제외',
+        keep_simple: '깔끔하게',
+
+        // 예전 문구 방식(혹시 남아있을 때)
+        '향 강한 꽃은 싫어함': '향 약하게',
+        '알레르기/민감 있음': '알레르기',
+        '장미는 싫어함': '장미 제외',
+        '화려한 건 부담': '깔끔하게',
+
+        none: '없음',
+        '없음': '없음',
+
+        // 현재 cautions 값
+        scent_light: '향 약하게',
+        allergy_sensitive: '알레르기',
+        clean_over_flashy: '깔끔하게'
+      };
+
+      const tabooShortList = rawTaboos
+        .map(v => tabooShortMap[v] || String(v))
+        .filter(v => v && v !== '없음' && v !== 'none');
+
+      const cautionTextForOrder = tabooShortList.length
+        ? ` / 참고사항: ${tabooShortList.join(' · ')}`
+        : '';
+      const floristOrder = `주문문장: ${basicOrderSentence}${cautionTextForOrder}`;
+
+      const shareState = {...state};
+      const code = base64UrlEncode(shareState);
+      const url = new URL(location.href);
+      url.searchParams.set('r', code);
+      history.replaceState(null, '', url.toString());
+
+      const cautionChipHtml = (() => {
+        if (tabooShortList.length === 0) {
+          return `<span class="chip">참고사항: <b>없음</b></span>`;
+        }
+        if (tabooShortList.length === 1) {
+          return `<span class="chip">참고사항: <b>${escapeHtml(tabooShortList[0])}</b></span>`;
+        }
+        if (tabooShortList.length === 2) {
+          return `<span class="chip">참고사항: <b>${escapeHtml(tabooShortList.join(' · '))}</b></span>`;
+        }
+        // 3개 이상이면 칩에 실제 개수 표시, 안에 전체 리스트
+        return `
+          <details class="chipDetails">
+            <summary class="chip">참고사항: <b>${tabooShortList.length}개(눌러보기)</b></summary>
+            <div class="chipPanel">
+              ${tabooShortList.map(x => `<div class="chipLine">• ${escapeHtml(x)}</div>`).join('')}
+            </div>
+          </details>
+        `;
+      })();
+
+      // ====== 주문문장(미리보기 구성) ======
+      const orderPreviewHtml = `📢 주문문장: ${escapeHtml(basicOrderSentence)}${cautionTextForOrder ? `<br/>참고사항: ${escapeHtml(tabooShortList.join(' · '))}` : ''}`;
+      const basicMsgList = [basicMessage];
+      const paidBadge = 'TONEART';
+      const paidBtnText = PG_READY ? '👉 3,900원으로 시크릿 가이드 열기' : '🎁 화이트데이 한정기간 무료 오픈! (꽃다발 이미지)';
+      const paidPriceGuideHtml = PG_READY ? `
+          <div style="text-align: center; margin: 10px 0 10px;">
+            <div style="font-weight: 700; color: #111827; margin-bottom: 6px;">🔒 잠깐! 꽃집에 가기 전, 완벽한 주문서를 확인하세요</div>
+            <del style="color: #94a3b8; font-size: 13px;">정가 9,900원</del>
+            <div style="color: #111827; font-size: 18px; font-weight: 800; margin-top: 4px;">커피 한 잔 값, 3,900원</div>
+          </div>
+      ` : '';
+
+      const resultHtml = `
+        <!-- [A] HERO 카드 -->
+        <div class="box heroCard">
+          <div class="heroChatHead">
+            <div class="heroChatTitle">🌷 꽃집 누나</div>
+          </div>
+          <div class="heroChatBody">
+            <div class="heroChatItem">
+              <div class="heroMsg heroMsgLeft">
+                <div class="heroMsgLine">골랐어! 이게 딱이야.</div>
+                <div class="heroMsgLine"><b>${escapeHtml(mainAsset.name)}</b> 🌸</div>
+              </div>
+              <span class="heroChatMeta">지금</span>
+            </div>
+
+            <div class="heroChatItem">
+              <div class="heroPhotoWrap">
+                <div class="heroPhotoCard">
+                  <img src="./${escapeHtml(mainAsset.img)}" alt="대표 꽃 ${escapeHtml(mainAsset.name)}" loading="lazy" />
+                </div>
+                <div class="heroPhotoHint">※ 이미지는 꽃 ‘종류/모양’ 참고용이에요.</div>
+              </div>
+              <span class="heroChatMeta">지금</span>
+            </div>
+
+            <div class="heroChatItem">
+              <div class="heroMsg heroMsgLeft heroDescMsg">${escapeHtml(`꽃 추천: ${basicMoodLine} ${basicToneLine}`)}</div>
+              <span class="heroChatMeta">지금</span>
+            </div>
+
+            <div class="heroChips">
+              <span class="chip">상황: <b>${escapeHtml(state.occasion || '')}</b></span>
+              <span class="chip">색감: <b>${escapeHtml(paletteLabel)}</b></span>
+              ${cautionChipHtml}
+            </div>
+
+            <div class="heroMsg heroOrderMsg">
+              <div class="orderBoxTitle">꽃집에 이렇게 보내봐 📢</div>
+              <div class="orderPreviewWrap is-locked" id="orderPreviewWrap">
+                <div class="orderPreviewMask">복사 후 열림</div>
+                <p class="orderPreview" id="orderPreview">${orderPreviewHtml}</p>
+              </div>
+            </div>
+            <button id="btnCopyOrder" class="primaryFull heroCopyBtn" type="button">주문문장 복사</button>
+          </div>
+        </div>
+
+        <!-- [C] 무료: 멘트 1개 -->
+        <div class="box">
+          <h3>꽃과 함께하면 좋을 멘트</h3>
+          <ol class="list msgList" style="margin-top:10px;">
+            ${basicMsgList.map((m, i)=>`
+              <li>
+                <span class="msgText">${escapeHtml(m)}</span>
+                <button class="msgCopy" type="button" data-idx="${i}">복사</button>
+              </li>
+            `).join('')}
+          </ol>
+        </div>
+
+        <!-- [PAID] 디테일 확장 -->
+        <div class="box paidCard" id="paidUpsellBox">
+          <div class="paidHead">
+            <div class="paidTitle">🎁 화이트데이 이벤트 보너스 (시크릿 가이드 4가지)</div>
+            <div class="paidPrice">${paidBadge}</div>
+          </div>
+          <p class="paidSub">지금은 이벤트로 누구나 열람가능, 종료 후 유료로 전환될 수 있어요</p>
+          <p class="paidDesc">📸 1. 꽃다발 시안 이미지<br/>꽃집에 사진만 보여줘도 “이 분위기”가 바로 전달돼요.<br/><br/>📋 2. 복붙 주문문장(꽃집 DM용)<br/>메인 꽃/톤/주의사항을 한 문장으로 정리해 드려요.<br/><br/>🎨 3. 컬러 팔레트 &amp; 포장 키워드<br/>톤에 맞는 색/리본/포장지 키워드로 실패 확률을 줄여요.<br/><br/>💬 4. 상황별 멘트 5개<br/>어색하지 않은 짧은 문장으로 골라 쓰기만 하면 돼요.</p>
+          ${paidPriceGuideHtml}
+          <button id="btnOpenPaid" class="paidCta" type="button" style="background-color: #5cb85c; color: white; padding: 10px; border: none; border-radius: 5px; width: 100%;">${paidBtnText}</button>
+        </div>
+
+        <div class="btnrow" style="margin-top:16px;">
+          <button id="btnAgain">다시 하기</button>
+          <button class="secondary" id="btnHome">처음으로</button>
+        </div>
+      `;
+
+      $('resultArea').innerHTML = resultHtml;
+      if(!PG_READY){
+        document.querySelector('.service-period')?.style.setProperty('display','none');
+      } else {
+        document.querySelector('.service-period')?.style.removeProperty('display');
+      }
+
+      // ====== 버튼 바인딩: 없는 버튼은 안전하게 스킵 ======
+      const btnCopyOrderEl = $('btnCopyOrder');
+      if(btnCopyOrderEl){
+        btnCopyOrderEl.onclick = async ()=>{
+          const ok = await copyText(floristOrder);
+          toast(ok ? '주문문장을 복사했어!' : '복사 실패(브라우저 권한 확인)');
+          if(ok){
+            const wrapEl = $('orderPreviewWrap');
+            if(wrapEl) wrapEl.classList.remove('is-locked');
+          }
+        };
+      }
+
+      const msgCopyBtns = Array.from(document.querySelectorAll('.msgCopy:not(.paidMsgCopy)'));
+      msgCopyBtns.forEach((btn)=>{
+        const idx = Number(btn.dataset.idx);
+        const text = basicMsgList[idx];
+        if(!text) return;
+        btn.addEventListener('click', async ()=>{
+          const ok = await copyText(text);
+          toast(ok ? '멘트를 복사했어!' : '복사 실패(브라우저 권한 확인)');
+        });
+      });
+
+      const paidUpsellBoxEl = $('paidUpsellBox');
+      const btnOpenPaidEl = $('btnOpenPaid');
+
+      async function fetchToneArtAPI(userState) {
+        const apiUrl = "/api/getFlowerGuide";
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-key': localStorage.getItem('ADMIN_KEY') || ''
+          },
+          body: JSON.stringify({
+            relation: userState.relation,
+            occasion: userState.occasion,
+            style: userState.style,
+            palette: userState.palette,
+            photoHabit: userState.photoHabit,
+            cautions: userState.cautions,
+            mainFlower: mainAsset.name,
+            mainFlowerKey: flowerKeyFromText(mainAsset.name) || '',
+            instruction: `유저 선택 6가지 데이터를 반영해서, 플로리스트 관점의 ‘실전 주문/가이드’로 작성해줘.
+옵션 나열(/) 금지, 한 항목당 확정안 1개만 제시. 한글로.`,
+            vipCode: enteredVipCode,
+          })
+        });
+        if (!response.ok) {
+          if(response.status === 403){
+            openVipGate();
+            document.getElementById('vipGateError')?.style.setProperty('display','block');
+            throw new Error('vip_code_invalid');
+          }
+          throw new Error('API 응답 실패');
+        }
+        return await response.json();
+      }
+
+      function renderVipResult(data) {
+        const messages = Array.isArray(data.messages) ? data.messages : [];
+        const palettes = Array.isArray(data.palettes) ? data.palettes : [];
+        const imageSource = String(data.imageSource || '').trim();
+        const imageError = String(data.imageError || '').trim();
+
+        // 이미지 URL 안전 처리 (비정상 스킴 차단)
+        const safeImg = sanitizeApiImageUrl(data.imageUrl);
+        const fallbackLocalImg = sanitizeUrl(`./${(mainAsset && mainAsset.img) ? mainAsset.img : 'image/rose.png'}`);
+        const heroImg = safeImg || fallbackLocalImg || fallbackSampleImage(data.moodLabel || '꽃다발 시안');
+        const usedFallbackImage = imageSource && imageSource !== 'openai';
+        if (usedFallbackImage) {
+          console.warn('[VIP_IMAGE_FALLBACK]', {
+            imageSource,
+            imageError: imageError || 'unknown',
+            returnedImageUrl: data.imageUrl
+          });
+        }
+
+        const wrapGuideText = data.wrapGuide || '';
+
+        const meaningByFlower = {
+          '장미': '사랑과 마음을 전하는 꽃',
+          '튤립': '설렘과 진심을 담는 꽃',
+          '라넌큘러스': '우아함과 매력을 담는 꽃',
+          '리시안셔스': '감사와 정성을 전하는 꽃',
+          '거베라': '밝은 응원과 기분 업',
+          '카라': '품격과 세련됨을 전하는 꽃',
+          '카네이션': '고마움과 존중을 담는 꽃',
+          '수국': '풍성한 마음과 배려'
+        };
+
+        // ✅ mainAsset이 없을 수 있으니 안전하게
+        const mainName = (typeof mainAsset !== 'undefined' && mainAsset && mainAsset.name) ? mainAsset.name : '';
+        const meaningText = meaningByFlower[mainName] || data.meaning || '';
+
+        const rec = data.recommend || {};
+        const priceTable = data.priceTable || {};
+        const recSize = rec.size || 'M';
+        const recBudget = rec.budget || (data.priceInfo || '약 5만~8만 원');
+        const recReason = rec.reason || '무난한 구간';
+        const isLoverRelation = String(state.relation || '') === '여자친구(연인)';
+        const defaultSizeGuide = isLoverRelation
+          ? {
+              S: '가벼운 축하/첫 선물',
+              M: '기본값(가장 무난) / 축하·새출발',
+              L: '기념일급 / 확실한 존재감'
+            }
+          : {
+              S: '3만~5만 (가벼운 감사/첫 선물/사과)',
+              M: '5만~8만 (친한 친구/축하/무난)',
+              L: '8만~13만 (각별한 사이/기념일)'
+            };
+        const quickToneLabel = String(paletteLabel || (palettes[0]?.name) || '미선택').trim();
+        const quickMoodLabel = String(data.moodLabel || '차분·세련').trim();
+        const quickWrapLabel = String(wrapGuideText || '무광/톤다운').trim();
+        const quickMainFlower = String(mainName || '추천 꽃').trim();
+        const quickOrderPlain =
+`[예산] ${recSize} / ${recBudget}
+
+[톤] ${quickToneLabel} / ${quickMoodLabel}
+
+[요청] ${String(data.occasion || '선물').trim()} / 메인 꽃은 ${quickMainFlower} 포함 + 포장은 ${quickWrapLabel}으로 깔끔하게`;
+        const topMsg = messages[0] || '';
+        const altMsgs = messages.slice(1);
+        const mainLine = mainName ? `(가능하면) ${mainName} 느낌이 들어가면 좋고,\n` : '';
+        const dmTemplate =
+`수령일: [ ] / 시간: [ ]
+지역: [ ] / 픽업 or 배송: [ ]
+
+안녕하세요! ${data.occasion ? `${data.occasion} ` : ''}선물로 꽃다발 주문하려고 해요.
+예산은 ${recBudget} (${recSize}) 정도이고, ${data.moodLabel || '추천'} 무드로 부탁드려요.
+${mainLine}포장/톤은 정돈된 느낌으로 부탁드립니다. 픽업/배송 가능 일정과 대략 구성 안내 가능할까요?`.trim();
+        const recKey = String(recSize || 'M').toUpperCase();
+        const rowBg = (k) => (recKey === k ? 'background: rgba(34,197,94,0.10);' : '');
+
+        const priceGuideHtml = `
+          <div class="vip-box" style="background:#ffffff; border:1px solid #e5e7eb;">
+            <h3>💰 오늘 추천 예산/사이즈</h3>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+              <div style="flex:0 0 auto; padding:8px 10px; border-radius:999px; border:1px solid #e5e7eb; background:#f8fafc; font-weight:900;">
+                추천: ${escapeHtml(recSize)}
+              </div>
+              <div style="font-weight:900; font-size:16px; color:#111827;">
+                ${escapeHtml(recBudget)}
+              </div>
+            </div>
+
+            <div style="margin-top:8px; font-size:13px; font-weight:750; color:#475569; line-height:1.5;">
+              이유: ${escapeHtml(recReason)}
+            </div>
+
+            <div style="margin-top:12px; border:1px solid #e5e7eb; border-radius:12px; overflow:hidden;">
+              <div style="display:grid; grid-template-columns:70px 1fr; border-bottom:1px solid #f3f4f6; ${rowBg('S')}">
+                <div style="padding:10px 12px; font-weight:900; color:#64748b; background:#f8fafc;">S</div>
+                <div style="padding:10px 12px; font-weight:800; color:#111827;">${escapeHtml(priceTable.S || defaultSizeGuide.S)}</div>
+              </div>
+              <div style="display:grid; grid-template-columns:70px 1fr; border-bottom:1px solid #f3f4f6; ${rowBg('M')}">
+                <div style="padding:10px 12px; font-weight:900; color:#64748b; background:#f8fafc;">M</div>
+                <div style="padding:10px 12px; font-weight:800; color:#111827;">${escapeHtml(priceTable.M || defaultSizeGuide.M)}</div>
+              </div>
+              <div style="display:grid; grid-template-columns:70px 1fr; ${rowBg('L')}">
+                <div style="padding:10px 12px; font-weight:900; color:#64748b; background:#f8fafc;">L</div>
+                <div style="padding:10px 12px; font-weight:800; color:#111827;">${escapeHtml(priceTable.L || defaultSizeGuide.L)}</div>
+              </div>
+            </div>
+
+            <div style="margin-top:8px; font-size:11px; color:#94a3b8; line-height:1.4;">
+              ※ 지역/시즌/샵 등급에 따라 변동될 수 있어요.
+            </div>
+          </div>
+        `;
+
+        const paidResultHtml = `
+          <style>
+            .vip-container { display: flex; flex-direction: column; gap: 20px; padding: 10px 0; }
+            .vip-box { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+            .vip-box h3 { margin: 0 0 12px; font-size: 16px; font-weight: 900; color: #111827; letter-spacing: -0.3px; }
+            .vip-hero { text-align: center; border: none; box-shadow: none; padding: 0; }
+            .vip-hero-media { display:flex; flex-direction:column; align-items:center; gap:10px; }
+            .vip-hero-img { display:block; width: 100%; max-width: 300px; aspect-ratio: 4/5; object-fit: cover; border-radius: 16px; margin: 0 auto; }
+            .vip-btn-outline { display:block; width: 50%; max-width: 150px; padding: 6px 8px; background: #ffffff; color: #111827; border: 1px solid #e5e7eb; border-radius: 10px; font-weight: 800; font-size: 12px; cursor: pointer; margin: 0 auto; }
+            .vip-hero-text { font-size: 15px; font-weight: 800; color: #374151; word-break: keep-all; line-height: 1.5; }
+            .vip-howto { width:100%; max-width:300px; margin:10px auto 0; padding:12px; border:1px solid #fbcfe8; border-radius:12px; background:#fff7fb; text-align:left; }
+            .vip-howto-title { margin:0 0 8px; font-size:13px; font-weight:900; color:#be185d; }
+            .vip-howto-step { margin:0; font-size:12px; font-weight:800; color:#374151; line-height:1.5; }
+            .vip-howto-step + .vip-howto-step { margin-top:4px; }
+            .vip-order-text { background: #f8fafc; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 700; color: #1f2937; line-height: 1.6; margin-bottom: 12px; }
+            .vip-order-tip { margin:0 0 10px; font-size:12px; font-weight:800; color:#475569; }
+            .vip-order-detail-toggle { margin-top:10px; display:flex; justify-content:flex-end; }
+            .vip-order-detail-body { margin-top:8px; padding:12px; border:1px solid #e5e7eb; border-radius:10px; background:#ffffff; font-size:12px; font-weight:700; color:#374151; line-height:1.6; white-space:pre-wrap; display:none; }
+            .vip-btn-full { width: 100%; padding: 12px; background: #22c55e; color: #ffffff; border: none; border-radius: 12px; font-weight: 800; font-size: 15px; cursor: pointer; }
+            .vip-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; flex-wrap:wrap; }
+            .vip-head h3 { margin:0; flex:1 1 220px; min-width:0; line-height:1.4; word-break:keep-all; }
+            .vip-head-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+            .vip-head-note { font-size:11px; font-weight:700; color:#64748b; white-space:nowrap; align-self:center; }
+            .mini-btn { padding:8px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.12); background:#fff; font-weight:700; cursor:pointer; }
+            .vip-detail-row { display: flex; align-items: flex-start; margin-bottom: 10px; font-size: 13px; line-height:1.5; }
+            .vip-detail-label { width: 60px; font-weight: 800; color: #6b7280; flex-shrink: 0; }
+            .vip-detail-value { font-weight: 700; color: #111827; }
+            .vip-msg-list { list-style: none; padding: 0; margin: 0; }
+            .vip-msg-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #f3f4f6; gap: 10px; }
+            .vip-msg-item:last-child { border-bottom: none; padding-bottom: 0; }
+            .vip-msg-text { font-size: 14px; font-weight: 700; color: #374151; line-height: 1.5; }
+            .vip-msg-btn { flex-shrink: 0; padding: 6px 10px; font-size: 12px; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; cursor: pointer; font-weight: 700; }
+            .vip-alt-wrap { margin-top:12px; }
+            .vip-alt-head { margin-top:0; display:flex; justify-content:flex-end; }
+            .vip-alt-body { display:none; }
+            @media (max-width: 560px) {
+              .vip-head h3 { flex-basis:100%; }
+              .vip-head-actions { width:100%; justify-content:flex-start; }
+              .vip-head-note { white-space:normal; }
+            }
+          </style>
+
+          <div class="vip-container">
+            <div class="vip-box vip-hero">
+              <div class="vip-hero-media">
+                <img src="${escapeHtml(heroImg)}" alt="꽃다발 시안" class="vip-hero-img" />
+                <button class="vip-btn-outline" id="btnSaveVipImage" type="button">이미지 저장</button>
+                <div style="height:10px;"></div>
+              </div>
+
+              <div class="vip-hero-text">
+                ${escapeHtml(data.targetName || '그분')}에게 어울리는<br>
+                <span style="color:#22c55e;">${escapeHtml(data.moodLabel || '추천')} 무드</span>입니다.
+              </div>
+
+              ${meaningText ? `
+                <div style="margin:10px auto 0; max-width:320px; font-size:13px; font-weight:750; color:#475569; line-height:1.5;">
+                  <span style="font-weight:900; color:#111827;">전하고 싶은 느낌</span> · ${escapeHtml(meaningText)}
+                </div>
+              ` : ''}
+
+              <div style="margin:8px auto 0; max-width:320px; font-size:11px; color:#94a3b8; line-height:1.4;">
+                ※ 참고용 시안입니다. *꽃말/의미는 자료에 따라 다를 수 있으며 계절/재고에 따라 유사 무드로 대체될 수 있어요.
+              </div>
+              ${usedFallbackImage ? `
+                <div style="margin:6px auto 0; max-width:320px; font-size:11px; color:#dc2626; line-height:1.4;">
+                  ※ API 이미지 생성 실패로 기본 이미지가 표시되었어요 (${escapeHtml(imageError || 'unknown_error')}).
+                </div>
+              ` : ''}
+            </div>
+
+            ${priceGuideHtml}
+
+            <div class="vip-box">
+              <div class="vip-head">
+                <h3>📋 1초 복붙! 플로리스트 주문서</h3>
+                <button class="mini-btn" type="button" id="btnCopyVipOrderMini">복사</button>
+              </div>
+              <div class="vip-order-text" id="vipOrderContent">${nl2brSafe(quickOrderPlain)}</div>
+              <div class="vip-order-tip">이 버튼만 복사해서 꽃집 DM에 붙여넣으면 됩니다</div>
+              <button class="vip-btn-full" id="btnCopyVipOrder" type="button">주문서 전체 복사하기</button>
+              <div class="vip-order-detail-toggle">
+                <button class="mini-btn" type="button" id="btnToggleOrderDetail">상세 옵션(펼치기)</button>
+              </div>
+              <div class="vip-order-detail-body" id="vipOrderDetailBody">${escapeHtml(String(data.orderText || '').trim())}</div>
+            </div>
+
+            <div class="vip-box">
+              <div class="vip-head">
+                <h3>💬 분위기 살려주는 멘트</h3>
+              </div>
+
+              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px; padding:12px; border:1px solid #e5e7eb; border-radius:12px; background:#fff;">
+                <div>
+                  <div style="display:inline-block; padding:2px 8px; border-radius:999px; background:#22c55e; color:#fff; font-size:12px; font-weight:900;">가장 무난</div>
+                  <div style="margin-top:8px; font-size:14px; font-weight:800; color:#111827; line-height:1.5;">${escapeHtml(topMsg)}</div>
+                </div>
+                <button class="vip-msg-btn" type="button" id="btnCopyTopVipMsg">복사</button>
+              </div>
+
+              ${altMsgs.length ? `
+                <div class="vip-alt-wrap">
+                  <div class="vip-alt-head">
+                    <button class="mini-btn" type="button" id="btnToggleAltMsgs">다른 멘트 보기(${altMsgs.length}개)</button>
+                  </div>
+                  <div class="vip-alt-body" id="vipAltMsgsBody">
+                    <ul class="vip-msg-list" style="margin-top:6px;">
+                      ${altMsgs.map((msg, i) => `
+                        <li class="vip-msg-item">
+                          <div class="vip-msg-text">${escapeHtml(msg)}</div>
+                          <button class="vip-msg-btn" type="button" data-alt-idx="${i}">복사</button>
+                        </li>
+                      `).join('')}
+                    </ul>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+
+            <div class="vip-box" id="vipSecretBox">
+              <div class="vip-head">
+                <h3>🔒 시크릿 디테일 가이드</h3>
+                <div class="vip-head-actions">
+                  <span class="vip-head-note">원하면 더 디테일하게 요청할 때만 펼쳐요</span>
+                  <button class="mini-btn" type="button" id="btnCopySecret">복사</button>
+                  <button class="mini-btn" type="button" id="btnToggleSecret">펼치기</button>
+                </div>
+              </div>
+
+              <div class="vip-body" id="vipSecretBody" style="display:none;">
+                <div class="vip-detail-row">
+                  <div class="vip-detail-label">포장</div>
+                  <div class="vip-detail-value">${escapeHtml(wrapGuideText)}</div>
+                </div>
+                <div class="vip-detail-row">
+                  <div class="vip-detail-label">꽃조합</div>
+                  <div class="vip-detail-value">${nl2brSafe(data.flowerMix)}</div>
+                </div>
+
+                <div class="palette" style="margin-top:14px;">
+                  ${palettes.map(p => `
+                    <div class="swatch">
+                      <div class="swatchColor" style="background:${sanitizeHex(p.hex)};"></div>
+                      <div class="swatchMeta">${escapeHtml(p.name || '')}</div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+
+            <div class="vip-howto">
+              <p class="vip-howto-title">✅ 이렇게 쓰면 끝(30초)</p>
+              <p class="vip-howto-step">1. 이미지 저장 → 꽃집에 보여주기</p>
+              <p class="vip-howto-step">2. 주문서 전체 복사 → DM으로 보내기</p>
+              <p class="vip-howto-step">3. 멘트 1개 복사 → 여자친구에게 보내기</p>
+            </div>
+
+            <div class="vip-box" style="background:#f8fafc; border:none;">
+              <h3>💡 실전 참고</h3>
+              <div style="margin-top:14px; padding:12px; border:1px solid #e5e7eb; border-radius:12px; background:#fff;">
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                  <div style="font-size:13px; font-weight:900; color:#111827;">📩 꽃집 첫 DM 템플릿</div>
+                  <button class="vip-msg-btn" type="button" id="btnCopyDmTemplate">복사</button>
+                </div>
+                <div style="margin-top:8px; font-size:12px; font-weight:750; color:#374151; line-height:1.6; white-space:pre-wrap;">${escapeHtml(dmTemplate)}</div>
+              </div>
+            </div>
+
+            <div class="btnrow" style="margin-top:16px;">
+              <button id="btnAgainVip" type="button">다시 하기</button>
+              <button class="secondary" id="btnHomeVip" type="button">처음으로</button>
+            </div>
+
+          </div>
+        `;
+
+        $('resultArea').innerHTML = paidResultHtml;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.style.paddingBottom = '';
+
+        // ✅ 주문서 복사(기존 버튼 + 상단 미니 버튼)
+        const btnCopyVipOrder = document.getElementById('btnCopyVipOrder');
+        const btnCopyVipOrderMini = document.getElementById('btnCopyVipOrderMini');
+        const orderTextPlain = String(quickOrderPlain || '').trim();
+
+        async function copyOrder() {
+          const ok = await copyText(orderTextPlain);
+          if(!ok){
+            alert('복사가 막혔어요. 브라우저 권한을 확인해 주세요.');
+            return;
+          }
+          if (btnCopyVipOrder) btnCopyVipOrder.textContent = '복사됨 ✅';
+          if (btnCopyVipOrderMini) btnCopyVipOrderMini.textContent = '복사됨';
+          setTimeout(() => {
+            if (btnCopyVipOrder) btnCopyVipOrder.textContent = '주문서 전체 복사하기';
+            if (btnCopyVipOrderMini) btnCopyVipOrderMini.textContent = '복사';
+          }, 900);
+        }
+
+        if (btnCopyVipOrder) btnCopyVipOrder.onclick = copyOrder;
+        if (btnCopyVipOrderMini) btnCopyVipOrderMini.onclick = copyOrder;
+
+        function isVisible(el){
+          return !!el && window.getComputedStyle(el).display !== 'none';
+        }
+
+        const btnToggleOrderDetail = document.getElementById('btnToggleOrderDetail');
+        const vipOrderDetailBody = document.getElementById('vipOrderDetailBody');
+        if (btnToggleOrderDetail && vipOrderDetailBody) {
+          btnToggleOrderDetail.onclick = () => {
+            const open = isVisible(vipOrderDetailBody);
+            vipOrderDetailBody.style.display = open ? 'none' : 'block';
+            btnToggleOrderDetail.textContent = open ? '상세 옵션(펼치기)' : '상세 옵션(접기)';
+          };
+        }
+
+        // ✅ 이미지 저장
+        document.getElementById('btnSaveVipImage')?.addEventListener('click', async () => {
+          await downloadImage(heroImg, 'flower_guide.png');
+        });
+
+        // ✅ 시크릿 디테일: 복사/펼치기
+        const btnCopySecret = document.getElementById('btnCopySecret');
+        const btnToggleSecret = document.getElementById('btnToggleSecret');
+        const vipSecretBody = document.getElementById('vipSecretBody');
+
+        const secretPlain =
+          `【시크릿 디테일 가이드】\n` +
+          `- 포장: ${String(wrapGuideText || '').trim()}\n` +
+          `- 꽃조합:\n${String(data.flowerMix || '').trim()}\n` +
+          `- 팔레트: ${(Array.isArray(palettes) ? palettes : []).map(p => p?.name).filter(Boolean).join(', ')}`;
+
+        if (btnCopySecret) {
+          btnCopySecret.onclick = async () => {
+            const ok = await copyText(secretPlain);
+            if(!ok){
+              alert('복사가 막혔어요. 브라우저 권한을 확인해 주세요.');
+              return;
+            }
+            btnCopySecret.textContent = '복사됨';
+            setTimeout(() => (btnCopySecret.textContent = '복사'), 900);
+          };
+        }
+
+        if (btnToggleSecret && vipSecretBody) {
+          btnToggleSecret.onclick = () => {
+            const open = vipSecretBody.style.display !== 'none';
+            vipSecretBody.style.display = open ? 'none' : 'block';
+            btnToggleSecret.textContent = open ? '펼치기' : '접기';
+          };
+        }
+
+        // ✅ VIP 멘트 복사(추천 1개)
+        document.getElementById('btnCopyTopVipMsg')?.addEventListener('click', async () => {
+          const text = (messages[0] || '').trim();
+          const ok = await copyText(text);
+          toast(ok ? '복사했어!' : '복사 실패(브라우저 권한 확인)');
+        });
+
+        // ✅ 대안 멘트 접기/펼치기
+        const btnToggleAltMsgs = document.getElementById('btnToggleAltMsgs');
+        const vipAltMsgsBody = document.getElementById('vipAltMsgsBody');
+        if (btnToggleAltMsgs && vipAltMsgsBody) {
+          btnToggleAltMsgs.addEventListener('click', () => {
+            const open = isVisible(vipAltMsgsBody);
+            vipAltMsgsBody.style.display = open ? 'none' : 'block';
+            btnToggleAltMsgs.textContent = open
+              ? `다른 멘트 보기(${altMsgs.length}개)`
+              : '다른 멘트 접기';
+          });
+        }
+
+        // ✅ VIP 멘트 복사(대안)
+        document.querySelectorAll('.vip-msg-btn[data-alt-idx]').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            const i = Number(btn.dataset.altIdx);
+            const text = (messages[i + 1] || '').trim();
+            const ok = await copyText(text);
+            toast(ok ? '복사했어!' : '복사 실패(브라우저 권한 확인)');
+          });
+        });
+
+        document.getElementById('btnCopyDmTemplate')?.addEventListener('click', async () => {
+          const ok = await copyText(dmTemplate);
+          toast(ok ? 'DM 템플릿을 복사했어!' : '복사 실패(브라우저 권한 확인)');
+        });
+
+        document.getElementById('btnAgainVip')?.addEventListener('click', ()=>{
+          clearState();
+          clearStickyPadding();
+          stepIdx = 0;
+          clearOnlyResultParam();
+          showScreen('screenQuiz');
+          renderStep();
+        });
+
+        document.getElementById('btnHomeVip')?.addEventListener('click', resetAll);
+
+      }
+
+      function showLoadingUI() {
+        if (!document.getElementById('apiLoadingOverlay')) {
+          const overlay = document.createElement('div');
+          overlay.id = 'apiLoadingOverlay';
+          overlay.innerHTML = `
+      <div style="position:fixed; inset:0; background:rgba(255,255,255,0.85); z-index:9999; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+        <div style="font-size:40px; animation: spin 1.5s linear infinite;">🌸</div>
+        <div style="margin-top:20px; font-weight:800; font-size:16px; color:#111827;">플로리스트 누나가 큐레이션 중...</div>
+        <div style="margin-top:8px; font-weight:700; font-size:13px; color:#6b7280;">딱 10초만 기다려줘!</div>
+        <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
+      </div>
+    `;
+          document.body.appendChild(overlay);
+        }
+        document.getElementById('apiLoadingOverlay').style.display = 'flex';
+      }
+
+      function hideLoadingUI() {
+        const overlay = document.getElementById('apiLoadingOverlay');
+        if (overlay) overlay.style.display = 'none';
+      }
+
+      runVipFlow = async function(){
+        showLoadingUI();
+        try {
+          const apiResult = await fetchToneArtAPI(state);
+          renderVipResult(apiResult);
+        } catch (error) {
+          console.error('API 호출 에러:', error);
+          if (String(error?.message || '') === 'vip_code_invalid') return;
+          alert('결과를 불러오는 중 문제가 발생했어요. 다시 시도해 주세요.');
+        } finally {
+          hideLoadingUI();
+        }
+      };
+
+      const openPaidGuide = async (e) => {
+        if (e && e.stopPropagation) e.stopPropagation();
+
+        if(VIP_GATE_ENABLED){
+          openVipGate();
+          return;
+        }
+
+        await runVipFlow();
+      };
+
+      if (btnOpenPaidEl) {
+        btnOpenPaidEl.onclick = (e) => {
+          openPaidGuide(e);
+        };
+      }
+      if (paidUpsellBoxEl) {
+        paidUpsellBoxEl.addEventListener('click', (e)=>{
+          const isBtn = e.target && e.target.closest && e.target.closest('#btnOpenPaid');
+          if(!isBtn){
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        });
+      }
+      const btnAgainEl = $('btnAgain');
+      if(btnAgainEl){
+        btnAgainEl.onclick = ()=>{
+          clearState();
+          clearStickyPadding();
+          stepIdx = 0;
+          clearOnlyResultParam();
+          showScreen('screenQuiz');
+          renderStep();
+        };
+      }
+
+      const btnHomeEl = $('btnHome');
+      if(btnHomeEl){
+        btnHomeEl.onclick = resetAll;
+      }
+
+      showScreen('screenResult');
+    }
+
+    function initFromUrl(){
+      const params = new URLSearchParams(location.search);
+      const r = params.get('r');
+
+      // ✅ 기존 무료 복원
+      if(!r) return;
+      try{
+        const loaded = base64UrlDecode(r);
+        const safeLoaded = sanitizeLoadedState(loaded);
+        Object.assign(state, safeLoaded);
+        showResult();
+      }catch(e){
+        clearOnlyResultParam();
+      }
+    }
+
+    function initVipGate(){
+      const closeBtn = document.getElementById('vipGateClose');
+      const submitBtn = document.getElementById('vipGateSubmit');
+      const input = document.getElementById('vipGateInput');
+      const err = document.getElementById('vipGateError');
+      const copyDm = document.getElementById('vipGateCopyDm');
+      const goInsta = document.getElementById('vipGateGoInsta');
+
+      if(closeBtn) closeBtn.onclick = closeVipGate;
+
+      async function submit(){
+        const code = normalizeVipCode(input?.value);
+        if(!code){
+          if(err) err.style.display = 'block';
+          return;
+        }
+
+        enteredVipCode = code;
+        closeVipGate();
+        if (typeof runVipFlow === 'function') {
+          await runVipFlow();
+        }
+      }
+
+      if(submitBtn) submitBtn.onclick = submit;
+      if(input) input.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter') submit();
+      });
+
+      if(copyDm) copyDm.onclick = async ()=>{
+        const msg = '시크릿 코드 부탁드려요! (꽃집 누나 PICK 테스트 했어요)';
+        const ok = await copyText(msg);
+        toast(ok ? 'DM 문구를 복사했어!' : '복사 실패');
+      };
+
+      if(goInsta) goInsta.onclick = ()=>{
+        window.open('https://instagram.com/tone_art', '_blank', 'noopener');
+      };
+    }
+
+    async function onShareSite(){
+      const shareUrl = `${location.origin}${location.pathname}`;
+      const shareText = `남친에게 보내기(링크 복사): ${shareUrl}`;
+
+      if (navigator.share) {
+        try{
+          await navigator.share({
+            title: '꽃을 만지는 누나',
+            text: '남친에게 보내기(링크 복사)',
+            url: shareUrl
+          });
+          toast('공유창을 열었어!');
+          return;
+        }catch(e){
+          if (e && e.name === 'AbortError') return;
+        }
+      }
+
+      const ok = await copyText(shareText);
+      toast(ok ? '공유 문구를 복사했어!' : '복사 실패(브라우저 권한 확인)');
+    }
+
+    function loadExample(){
+      state.relation = '여자친구(연인)';
+      state.occasion = '생일/기념일';
+      state.palette = 'white_green';
+      state.photoHabit = 'sns_sometimes';
+      state.style = 'chic_elegant';
+      state.cautions = ['none'];
+      showResult();
+    }
+
+    function initBindings(){
+      byId('btnStart')?.addEventListener('click', ()=>{
+        showScreen('screenQuiz');
+        renderStep();
+      });
+      byId('btnHeaderStart')?.addEventListener('click', ()=> byId('btnStart')?.click());
+      byId('btnShareSite')?.addEventListener('click', onShareSite);
+      byId('btnBack')?.addEventListener('click', goBack);
+      byId('btnNext')?.addEventListener('click', goNext);
+      byId('btnRestart')?.addEventListener('click', resetAll);
+      byId('btnLoadExample')?.addEventListener('click', loadExample);
+    }
+
+    function initApp(){
+      initTopInfoPanel();
+      initStartSlider();
+      initVipGate();
+      initBindings();
+      initFromUrl();
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+
+  </script>
+  <style>
+    /* ===== Result Top (Hero + Actions) ===== */
+    .heroCard{
+      padding: 0;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#f5f6f8;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .heroChatHead{
+      background:#fff;
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+      text-align:center;
+    }
+    .heroChatTitle{
+      font-size:16px;
+      font-weight:900;
+      color:#111827;
+      letter-spacing:-.2px;
+    }
+    .heroChatBody{
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .heroChatItem{
+      display:flex;
+      align-items:flex-end;
+      gap:6px;
+    }
+    .heroChatMeta{
+      font-size:11px;
+      color:#8b95a1;
+      font-weight:700;
+      line-height:1;
+      margin-bottom:4px;
+      flex:0 0 auto;
+    }
+    .heroMsg{
+      position:relative;
+      width:fit-content;
+      max-width:90%;
+      border-radius:14px;
+      border-top-left-radius:8px;
+      background:#fff;
+      border:1px solid var(--line);
+      padding:10px 12px;
+      color:#1f2937;
+      font-size:14px;
+      font-weight:800;
+      line-height:1.45;
+    }
+    .heroMsg::before{
+      content:"";
+      position:absolute;
+      top:10px;
+      left:-6px;
+      width:10px;
+      height:10px;
+      background:#fff;
+      border-left:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      transform:rotate(45deg);
+    }
+    .heroMsgLine + .heroMsgLine{
+      margin-top:2px;
+    }
+    .heroPhotoCard{
+      width: 184px;
+      aspect-ratio: 3 / 4;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .heroPhotoWrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:6px;
+      width:184px;
+      flex:0 0 auto;
+    }
+    .heroPhotoHint{
+      width:100%;
+      font-size:11px;
+      color:#94a3b8;
+      text-align:center;
+      line-height:1.2;
+    }
+    .heroPhotoCard img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      background:#fff;
+    }
+    .heroDescMsg{
+      white-space:normal;
+    }
+    .heroChips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:flex-start;
+    }
+    .heroCard .chip{
+      background:#fff;
+    }
+    .heroOrderMsg{
+      width:100%;
+      max-width:none;
+      box-sizing:border-box;
+    }
+    .heroCopyBtn{
+      margin-top:2px;
+    }
+
+    .primaryFull{
+      width:100%;
+      padding: 14px 14px;
+      border-radius: 16px;
+      font-size: 16px;
+    }
+
+    .orderPreview{
+      margin: 10px 0 0;
+      font-size:13px;
+      font-weight:700;
+      color: var(--text);
+      display:-webkit-box;
+      line-clamp: 2;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+    .orderBoxTitle{
+      font-size:14px;
+      font-weight:900;
+      color: var(--text);
+    }
+    .orderPreviewWrap{
+      position: relative;
+      margin-top: 12px;
+      border-radius: 12px;
+      background: #f8fafc;
+      padding: 12px 12px;
+      min-height: 64px;
+      border: 1px solid var(--line);
+    }
+    .orderPreviewWrap.is-locked .orderPreview{
+      filter: blur(6px);
+      opacity: .5;
+    }
+    .orderPreviewWrap:not(.is-locked) .orderPreview{
+      display:block;
+      -webkit-line-clamp: unset;
+      line-clamp: unset;
+      overflow: visible;
+    }
+    .orderPreviewMask{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      font-weight:800;
+      color: var(--muted);
+      background: rgba(255,255,255,.7);
+      border-radius: 12px;
+      pointer-events:none;
+    }
+    .orderPreviewWrap:not(.is-locked) .orderPreviewMask{
+      display:none;
+    }
+
+    .msgList li{
+      display:list-item;
+    }
+    .msgText{
+      display:inline;
+    }
+    .msgCopy{
+      display:inline-flex;
+      align-items:center;
+      margin-left:8px;
+      vertical-align:baseline;
+      white-space:nowrap;
+      border:1px solid var(--line);
+      background:#fff;
+      color: var(--text);
+      font-size:12px;
+      font-weight:800;
+      padding:6px 10px;
+      border-radius: 10px;
+      cursor:pointer;
+    }
+    .msgCopy:hover{
+      background:#f8fafc;
+      transform:none;
+    }
+
+    /* ✅ VIP/서브 액션 버튼은 흰색으로(메인 CTA만 초록 유지) */
+    #app .mini-btn,
+    #app .vip-btn-outline,
+    #app .vip-msg-btn,
+    #app .msgCopy{
+      border: 1px solid var(--line) !important;
+      background: #fff !important;
+      color: var(--text) !important;
+    }
+
+    #app .mini-btn:hover,
+    #app .vip-btn-outline:hover,
+    #app .vip-msg-btn:hover,
+    #app .msgCopy:hover{
+      transform:none !important;
+      background:#f8fafc !important;
+      border-color:#d1d5db !important;
+    }
+
+    .noneDivider{
+      height:1px;
+      background:#e5e7eb;
+      margin: 6px 0 10px;
+    }
+
+    .detailsPlain{
+      margin-top:10px;
+    }
+    .detailsPlain summary{
+      cursor:pointer;
+      font-weight:900;
+      font-size:13px;
+      color:var(--text);
+      list-style:none;
+    }
+    .detailsPlain summary::-webkit-details-marker{display:none;}
+    .detailsPlain .fullText{
+      margin:8px 0 0;
+      font-size:13px;
+      color:var(--text);
+      font-weight:650;
+      white-space: pre-wrap;
+    }
+
+    /* chip처럼 클릭 가능한 주의사항 */
+    .chipDetails{
+      display:inline-block;
+    }
+    .chipDetails summary.chip{
+      cursor:pointer;
+      user-select:none;
+    }
+    .chipDetails summary.chip::-webkit-details-marker{display:none;}
+    .chipPanel{
+      margin-top:8px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fff;
+    }
+    .chipLine{
+      font-size:12px;
+      color:var(--text);
+      font-weight:750;
+      margin:4px 0;
+    }
+
+    /* ===== Paid Detail UI ===== */
+    .paidCard{
+      padding:16px;
+      border:2px dashed #fbcfe8;
+      background:#fff7fb;
+      cursor:default;
+      pointer-events: none;
+    }
+
+    .paidHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .paidTitle{
+      font-size:16px;
+      font-weight:950;
+      letter-spacing:-.3px;
+      color: var(--text);
+    }
+
+    .paidPrice{
+      font-size:12px;
+      font-weight:900;
+      color: #1f2937;
+      border:1px solid #cbd5f5;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#fff;
+      flex:0 0 auto;
+    }
+
+    /* 🎁 화이트데이 이벤트 보너스 박스만 연핑크로 강조 */
+    #paidUpsellBox{
+      background: #FFF1F5 !important;
+      border: 1px solid #F7C6D0 !important;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    /* (선택) 헤더/뱃지 톤도 같이 맞추기 */
+    #paidUpsellBox .paidHead{
+      background: #FFE6EE;
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+
+    #paidUpsellBox .paidTitle{
+      color: #8E2F4E;
+      font-weight: 800;
+    }
+
+    #paidUpsellBox .paidPrice{
+      background: #FFE0EA;
+      border: 1px solid #F7C6D0;
+      color: #8E2F4E;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .paidSub{
+      margin:8px 0 0;
+      font-size:12px;
+      font-weight:700;
+      color:#64748b;
+      line-height:1.45;
+    }
+
+    .paidDesc{
+      margin:10px 0 0;
+      font-size:13px;
+      font-weight:800;
+      color: var(--text);
+    }
+
+    .paidCta{
+      margin-top:12px;
+      pointer-events: auto;
+    }
+
+    .paidFineprint{
+      margin-top:8px;
+      font-size:12px;
+      color: var(--muted);
+      font-weight:650;
+    }
+
+    .paidResultBox h3{
+      margin:0 0 8px;
+      font-size:14px;
+      font-weight:900;
+      letter-spacing:-.2px;
+    }
+
+    .paidText{
+      font-size:13px;
+      color:var(--text);
+      font-weight:650;
+      white-space: normal;
+      line-height:1.5;
+    }
+
+    /* ===== Sticky CTA Bar (VIP) ===== */
+    #vipStickyBar{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      display: none;
+      gap: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.94);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      backdrop-filter: blur(8px);
+    }
+    #vipStickyBar .btn{
+      flex: 1;
+      padding: 12px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: #fff;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    #vipStickyBar .btn.primary{
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+    #vipStickyBar .btn:active{ transform: scale(0.99); }
+
+  </style>
+
+  <!-- ✅ 아래는 app 바깥(전역 하단 고정 안내/사업자) -->
+  <section class="service-period" aria-label="서비스 제공기간 및 환불 안내" style="max-width: 760px; margin: 0 auto; padding: 0 16px;">
+    <div class="service-period__box" style="font-size: 13px;">
+      <strong>[서비스 제공 및 환불 안내]</strong><br>
+      • <b>제공기간</b>: 결제 완료 즉시 웹페이지 내에서 유료 추천 결과 제공<br>
+      • <b>환불규정</b>: 본 상품은 디지털 콘텐츠로, <b>결제 후 서비스(결과)가 즉시 제공/열람되므로 결제 완료 후에는 전자상거래법에 의거하여 청약철회 및 환불이 불가</b>합니다.
+    </div>
+  </section>
+
+  <footer style="padding:24px 16px; border-top:1px solid #eee; font-size:13px; line-height:1.6; background-color: #fff;">
+    <div style="max-width:760px; margin:0 auto;">
+      
+      <div style="margin-bottom: 16px; display:flex; gap: 14px; font-weight:750; flex-wrap:wrap;">
+        <a href="/terms.html" style="color:#0f172a; text-decoration:underline; text-underline-offset:3px;">이용약관</a>
+        <a href="/privacy.html" style="color:#0f172a; text-decoration:underline; text-underline-offset:3px;">개인정보처리방침</a>
+        <a href="/refund.html" style="color:#0f172a; text-decoration:underline; text-underline-offset:3px;">서비스제공/환불규정</a>
+      </div>
+
+      <div style="font-weight:700; margin-bottom:8px;">사업자 정보</div>
+      <div style="color: #475569;">
+        <div><b>상호명</b>: 톤아트</div>
+        <div><b>대표자명</b>: 김지안</div>
+        <div><b>사업장주소</b>: 서울시 서초구 마방로6길 13 범정빌딩 지하1층</div>
+        <div><b>사업자등록번호</b>: 886-08-00225</div>
+        <div><b>대표전화번호</b>: 070-8065-1344</div>
+        <div><b>대표이메일</b>: tone_art@hanmail.net</div>
+      </div>
+
+      <div style="margin-top: 16px; color: #94a3b8; font-size: 12px;">
+        <a href="https://instagram.com/tone_art" target="_blank" rel="noopener noreferrer" style="color:#94a3b8; text-decoration:none;">@tone_art</a> · © TONE ART
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>

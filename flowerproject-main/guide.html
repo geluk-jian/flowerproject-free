@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>누나의 전체 가이드 | 꽃을 만지는 누나</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FDFAF5;
+      --green: #3DB56A;
+      --green-dark: #2D9A57;
+      --green-light: #E8F7EE;
+      --text-dark: #1A1A1A;
+      --text-mid: #555;
+      --text-light: #999;
+      --border: #E8E8E8;
+      --white: #FFFFFF;
+      --gold: #C9A84C;
+      --gold-light: #FDF8EE;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-btn {
+      font-size: 13px;
+      color: var(--text-mid);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    main {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 20px 100px;
+    }
+
+    .hero-head {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .badge-premium {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid #E8D5A0;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .hero-head h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.4;
+      color: var(--text-dark);
+    }
+
+    .hero-head h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero-head p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+
+    .items-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      margin-bottom: 16px;
+    }
+
+    .items-header {
+      background: var(--green);
+      padding: 14px 20px;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .item-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .item-row:last-child { border-bottom: none; }
+
+    .item-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .item-text strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+
+    .item-text span {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .preview-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    .preview-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .preview-item {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .preview-item .p-emoji { font-size: 28px; margin-bottom: 6px; }
+    .preview-item .p-label {
+      font-size: 12px;
+      color: var(--text-mid);
+      font-weight: 500;
+    }
+
+    .palette-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .palette-dot {
+      flex: 1;
+      height: 28px;
+      border-radius: 8px;
+    }
+
+    .price-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .price-label {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .price-amount {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--text-dark);
+    }
+
+    .price-amount span {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .price-desc {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    .fixed-cta {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      padding: 16px 20px;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-pay {
+      width: 100%;
+      padding: 18px;
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 16px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+      box-shadow: 0 4px 16px rgba(61,181,106,0.35);
+      transition: background 0.2s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-pay:active {
+      background: var(--green-dark);
+      transform: scale(0.98);
+    }
+
+    .btn-pay .price-tag {
+      background: rgba(255,255,255,0.25);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    .fixed-cta.hidden {
+      display: none;
+    }
+
+    .sticky-bar{
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      gap: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.94);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .sticky-bar.hidden { display:none; }
+
+    .btn{
+      flex: 1;
+      padding: 12px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn.primary{
+      background: #22c55e;
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .section-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+
+    .mini-btn{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background:#fff;
+      font-weight:700;
+      cursor: pointer;
+    }
+
+    .badge{
+      display:inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: #fff;
+    }
+
+    .badge.reco{
+      background:#22c55e;
+      color:#fff;
+      border-color:transparent;
+    }
+
+    .result-card {
+      display: none;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .result-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .result-status {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .result-body {
+      font-size: 14px;
+      color: var(--text-dark);
+      line-height: 1.7;
+      white-space: normal;
+    }
+
+    .result-body.loading {
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+
+    .result-body.error {
+      color: #C0392B;
+    }
+
+    .result-image {
+      display: none;
+      width: 100%;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+    }
+
+    .result-image.show {
+      display: block;
+    }
+
+    .result-section {
+      display: block;
+      font-weight: 800;
+      margin-top: 12px;
+      color: var(--text-dark);
+    }
+
+    .result-palette {
+      margin: 12px 0 6px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .result-palette-title {
+      font-size: 12px;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .result-palette .palette-row {
+      margin-top: 0;
+    }
+
+    .result-palette-label {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-mid);
+      font-weight: 700;
+    }
+
+    .pro-block {
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .pro-block h3 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .pro-text {
+      margin-top: 8px;
+      white-space: pre-wrap;
+      line-height: 1.7;
+    }
+
+    .avoid-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .moved-paid-detail {
+      display: none;
+      margin-bottom: 16px;
+    }
+    .moved-paid-detail.show {
+      display: block;
+    }
+    .moved-paid-detail-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin: 0 0 10px;
+    }
+    .moved-paid-detail .box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 10px;
+    }
+    .moved-paid-detail .msgCopy,
+    .moved-paid-detail .secondary {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: #fff;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .moved-paid-detail .msgList {
+      list-style: decimal;
+      padding-left: 20px;
+    }
+    .moved-paid-detail .msgList li {
+      margin-bottom: 8px;
+    }
+    .moved-paid-detail .msgText {
+      display: inline-block;
+      margin-right: 8px;
+    }
+    .moved-paid-detail .btnrow {
+      margin-top: 10px;
+    }
+    .legalWrap{
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .legalHead{
+      padding: 14px var(--pad);
+      border-bottom: 1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      background:#fff;
+    }
+    .legalHead h2{
+      margin:0;
+      font-size:16px;
+      font-weight:950;
+      letter-spacing:-.2px;
+      color: var(--text);
+    }
+    .legalBody{
+      padding: var(--pad);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .legalBody .small{
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .legalList{
+      margin:10px 0 0;
+      padding-left: 18px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .legalList li{ margin: 6px 0; }
+    .legalLinks{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 14px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .legalLinks a{
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .legalBox{
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f8fafc;
+      padding: 12px 12px;
+    }
+    .bizMini{
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.7;
+    }
+    .bizMini b{ color: var(--text); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="back-btn" onclick="history.back()">← 결과로 돌아가기</div>
+    <div class="logo">🌷 꽃을 만지는 누나</div>
+  </header>
+
+  <main>
+    <div class="hero-head">
+      <div class="badge-premium">✨ 누나의 전체 가이드</div>
+      <h1>무료보다<br><em>훨씬 더 챙겨줄게.</em></h1>
+      <p>꽃다발 완성까지 누나가 끝까지 도와줌</p>
+    </div>
+
+    <div class="items-card">
+      <div class="items-header">🌷 이런 게 포함돼 있어</div>
+
+      <div class="item-row">
+        <div class="item-icon">🖼️</div>
+        <div class="item-text">
+          <strong>꽃다발 전체 구성 (이미지)</strong>
+          <span>실제 어떻게 만들어지는지 이미지로 확인</span>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-icon">💬</div>
+        <div class="item-text">
+          <strong>상황별 멘트 5개</strong>
+          <span>무료 3개보다 더 다양하게, 골라서 써</span>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-icon">📋</div>
+        <div class="item-text">
+          <strong>꽃집 DM 고급 버전</strong>
+          <span>더 자세한 주문 문장으로 실패 확률 0</span>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-icon">🎨</div>
+        <div class="item-text">
+          <strong>컬러 팔레트 + 포장 가이드</strong>
+          <span>그 사람 취향에 맞는 색감과 포장 스타일</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-title">미리보기</div>
+      <div class="preview-grid">
+        <div class="preview-item">
+          <div class="p-emoji">🖼️</div>
+          <div class="p-label">꽃다발 구성 이미지</div>
+        </div>
+        <div class="preview-item">
+          <div class="p-emoji">💬</div>
+          <div class="p-label">상황별 멘트 5개</div>
+        </div>
+        <div class="preview-item">
+          <div class="p-emoji">📋</div>
+          <div class="p-label">꽃집 DM 고급버전</div>
+        </div>
+        <div class="preview-item">
+          <div class="palette-row">
+            <div class="palette-dot" style="background:#F2E0D0;"></div>
+            <div class="palette-dot" style="background:#D4B8A0;"></div>
+            <div class="palette-dot" style="background:#8B6F5E;"></div>
+          </div>
+          <div class="p-label" style="margin-top:8px;">컬러 팔레트</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="price-label">지금 바로 받을 수 있어</div>
+      <div class="price-amount"><span>₩</span>3,900</div>
+      <div class="price-desc">일회성 결제 · 꽃 줄 때마다 쓸 수 있어</div>
+    </div>
+
+    <section class="result-card" id="paidResultCard">
+      <div class="result-head">
+        <div class="result-title">누나의 유료 꽃추천 결과</div>
+        <div class="result-status" id="paidResultStatus">준비됨</div>
+      </div>
+      <img id="bouquetImg" class="result-image" alt="추천 꽃다발 이미지" loading="lazy" />
+      <div class="result-body" id="paidResultBody"></div>
+    </section>
+
+    <section class="moved-paid-detail" id="movedPaidDetail">
+      <h3 class="moved-paid-detail-title">유료 추천 상세</h3>
+      <div id="movedPaidDetailBody"></div>
+    </section>
+  </main>
+
+  <div class="fixed-cta">
+    <button class="btn-pay" id="btnRunPaid">
+      누나의 전체 가이드 받기
+      <span class="price-tag">3,900원</span>
+    </button>
+  </div>
+
+  <div id="stickyBar" class="sticky-bar hidden">
+    <button id="ctaCopyOrder" class="btn primary">주문서 복사</button>
+    <button id="ctaSaveImage" class="btn">이미지 저장</button>
+    <button id="ctaShare" class="btn">링크 공유</button>
+  </div>
+
+  <section class="legalWrap" id="legal">
+    <div class="legalHead">
+      <h2>결제/이용 안내</h2>
+      <span class="pill">이니시스 심사 필수</span>
+    </div>
+
+    <div class="legalBody">
+      <div class="legalBox" id="service">
+        <div style="font-weight:950; margin-bottom:6px;">서비스 제공방법 · 제공기간</div>
+        <div>
+          <b>제공방법</b>: 결제 완료 후 본 웹페이지에서 즉시 이용 가능(결과/콘텐츠 화면 제공)<br/>
+          <b>제공기간</b>: 온라인상품 구매 후 바로 사용 가능(결제 완료 즉시 사용)
+        </div>
+        <div class="small" style="margin-top:6px;">※ 본 상품은 물품 배송이 아닌 디지털/온라인 서비스입니다.</div>
+      </div>
+
+      <div class="legalBox" id="refund">
+        <div style="font-weight:950; margin-bottom:6px;">교환/환불 규정</div>
+        <ul class="legalList">
+          <li>본 상품은 <b>디지털/온라인 서비스</b>로, 결제 완료 후 즉시 제공됩니다.</li>
+          <li>서비스(콘텐츠/결과)가 <b>제공된 이후</b>에는 서비스 특성상 환불이 제한될 수 있습니다.</li>
+          <li>다만, <b>서비스 미제공</b> 또는 <b>중대한 오류로 이용 불가</b>한 경우 확인 후 환불 가능합니다.</li>
+          <li>환불/문의: <b>tone_art@hanmail.net</b> / <b>070-8065-1344</b></li>
+          <li>기타 사항은 관계 법령 및 당사 약관에 따릅니다.</li>
+        </ul>
+        <div class="small">※ 상세 내용은 아래 “서비스제공/환불규정” 문서에서 확인할 수 있습니다.</div>
+      </div>
+
+      <div class="legalLinks">
+        <a href="/terms.html" target="_blank" rel="noopener">이용약관</a>
+        <a href="/privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>
+        <a href="/refund.html" target="_blank" rel="noopener">서비스제공/환불규정</a>
+      </div>
+
+      <div class="bizMini">
+        <div><b>상호명</b>: 톤아트</div>
+        <div><b>대표자명</b>: 김지안</div>
+        <div><b>사업장주소</b>: 서울시 서초구 마방로6길 13 범정빌딩 지하1층</div>
+        <div><b>사업자등록번호</b>: 886-08-00225</div>
+        <div><b>대표전화번호</b>: 070-8065-1344</div>
+        <div><b>대표이메일</b>: tone_art@hanmail.net</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function base64UrlDecode(str){
+      const b64 = str.replace(/-/g,'+').replace(/_/g,'/');
+      const pad = b64 + '==='.slice((b64.length + 3) % 4);
+      const bin = atob(pad);
+      const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+      const json = new TextDecoder().decode(bytes);
+      return JSON.parse(json);
+    }
+
+    function getStateFromQuery(){
+      const params = new URLSearchParams(location.search);
+      const encoded = params.get('r');
+      if (!encoded) return null;
+      try {
+        return base64UrlDecode(encoded);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function buildPromptFromState(state){
+      const payload = {
+        relation: (state && state.relation) || '미선택',
+        occasion: (state && state.occasion) || '미선택',
+        style: (state && (state.style || state.personality)) || '미선택',
+        palette: (state && state.palette) || '미선택',
+        finish: (state && state.finish) || '미선택',
+        photoHabit: (state && state.photoHabit) || '미선택',
+        taboos: (state && (Array.isArray(state.taboos) ? state.taboos.join(', ') : (state.taboos || '없음'))) || '없음'
+      };
+      return [
+        '당신은 10년차 꽃집 사장 누나입니다.',
+        '친한 남동생에게 말하듯 반말로,',
+        '따뜻하고 친근하게 설명해주세요.',
+        '',
+        '결과는 반드시 아래 형식으로만 출력하세요:',
+        '',
+        '[꽃다발 설명]',
+        '(2~3문장, 반말, 감성적으로)',
+        '',
+        '[대표꽃 · 컨셉 · 이유]',
+        '대표꽃:',
+        '컨셉:',
+        '이유: (1문장, 반말)',
+        '',
+        '[멘트 5개]',
+        '1. "..."',
+        '2. "..."',
+        '3. "..."',
+        '4. "..."',
+        '5. "..."',
+        '',
+        '[제작 가이드]',
+        '톤:',
+        '포장:',
+        '조합:',
+        '대체 규칙:',
+        '',
+        '[꽃집 전달 문장]',
+        '"..." (복붙용 한 문단)',
+        '',
+        '[주의사항]',
+        '· ...',
+        '· ...',
+        '· ...',
+        '',
+        '말투 예시 비교',
+        '현재개선"사랑과 애정을 상징하며 적합합니다""사랑한다는 말 대신 이 꽃으로 전달해봐""최적화된 조합입니다""이 조합이면 진짜 실패 없어""피해야 합니다""이건 좀 피해줘, 부담스러워 보여"',
+        '',
+        `무료 설문 결과: ${JSON.stringify(payload)}`,
+        '',
+        '절대 존댓말 쓰지 말고,',
+        '"-입니다", "-합니다" 쓰지 마세요.'
+      ].join('\n');
+    }
+
+    function labelFromMap(map, value, fallback){
+      if (!value) return fallback;
+      return map[value] || value || fallback;
+    }
+
+    function buildLocalPaidText(state){
+      const relationMap = {
+        '썸/소개팅': '썸/소개팅',
+        '여자친구(연인)': '연인',
+        '아내/배우자': '배우자',
+        '친구/동료': '친구/동료'
+      };
+      const occasionMap = {
+        '생일/기념일': '생일/기념일',
+        '사과(미안해)': '사과',
+        '축하(합격/승진/새출발)': '축하',
+        '첫 선물': '첫 선물',
+        '그냥(고맙고 응원)': '고마움/응원'
+      };
+      const styleMap = {
+        soft_feminine: '청순/여리',
+        romantic: '러블리',
+        chic_elegant: '세련/우아',
+        trendy: '트렌디/힙',
+        minimal: '미니멀/깔끔'
+      };
+      const photoMap = {
+        sns_often: '사진발 중요',
+        sns_sometimes: '가끔 촬영',
+        private_photo: '기록용 위주',
+        no_photo: '사진 관심 없음'
+      };
+      const cautionMap = {
+        scent_light: '향 약한 꽃 선호',
+        allergy_sensitive: '알레르기/민감',
+        no_rose: '장미 제외',
+        clean_over_flashy: '화려함보단 깔끔',
+        none: '없음'
+      };
+      const paletteMeta = getPaletteMeta(state && state.palette);
+
+      const relation = labelFromMap(relationMap, state && state.relation, '받는 분');
+      const occasion = labelFromMap(occasionMap, state && state.occasion, '특별한 날');
+      const style = labelFromMap(styleMap, state && (state.style || state.personality), '무난/깔끔');
+      const photoHabit = labelFromMap(photoMap, state && state.photoHabit, '무난');
+      const paletteLabel = paletteMeta ? paletteMeta.label : '선택 안함';
+
+      const cautionsRaw = Array.isArray(state && state.cautions) ? state.cautions : [];
+      const cautions = (cautionsRaw.length === 0 || cautionsRaw.includes('none'))
+        ? ['없음']
+        : cautionsRaw.map(v => labelFromMap(cautionMap, v, v));
+
+      const toneByStyle = {
+        '청순/여리': '맑고 여리한 톤',
+        '러블리': '달콤하고 사랑스러운 톤',
+        '세련/우아': '도시적이고 품격 있는 톤',
+        '트렌디/힙': '감각적이고 쿨한 톤',
+        '미니멀/깔끔': '담백하고 정돈된 톤'
+      };
+      const wrapByPhoto = {
+        '사진발 중요': '광택/리본 포인트로 사진발 강조',
+        '가끔 촬영': '포인트 1~2개만 가볍게',
+        '기록용 위주': '실용적이고 단정한 포장',
+        '사진 관심 없음': '간결하고 깔끔한 포장'
+      };
+
+      const repFlowerByPalette = {
+        '화이트·그린': '리시안서스 · 유칼립투스',
+        '핑크·피치': '피치 장미 · 작약',
+        '연보라·라일락': '라벤더 톤 리시안서스',
+        '레드·버건디': '버건디 장미 · 카네이션',
+        '옐로·오렌지': '거베라 · 미니 해바라기'
+      };
+      const repFlower = repFlowerByPalette[paletteLabel] || '계절 믹스 플라워';
+
+      return [
+        '[꽃다발 설명]',
+        `${relation}에게 ${occasion} 분위기로 맞춘 ${style} 무드야.`,
+        `${paletteLabel} 톤으로 정리하면 분위기 깨끗하고 선명하게 잡혀.`,
+        '',
+        '[대표꽃 · 컨셉 · 이유]',
+        `대표꽃: ${repFlower}`,
+        `컨셉: ${style} + ${paletteLabel}`,
+        `이유: ${occasion}에는 이 톤이 가장 실패 없고 안정적이야.`,
+        '',
+        '[멘트 5개]',
+        `1. "${occasion}에 딱 어울리는 색감으로 준비했어."`,
+        `2. "${relation} 생각하면서 고른 무드야, 부담 없이 받아줘."`,
+        `3. "${paletteLabel} 톤이라 오래 봐도 질리지 않을 거야."`,
+        `4. "${style} 느낌으로 정리했으니까 자연스럽게 예뻐."`,
+        `5. "오늘은 그냥 기분 좋게 받아줬으면 해."`,
+        '',
+        '[제작 가이드]',
+        `톤: ${toneByStyle[style] || '무난하고 깔끔한 톤'}`,
+        `포장: ${wrapByPhoto[photoHabit] || '심플 포장'}`,
+        `조합: ${paletteLabel} 중심으로 2~3톤 믹스`,
+        `대체 규칙: 계절 꽃으로 대체하되 톤만 유지`,
+        '',
+        '[꽃집 전달 문장]',
+        `"${occasion} 선물이에요. ${style} 무드로 ${paletteLabel} 톤 중심으로 부탁드리고, ${cautions.join(', ')}만 신경 써 주세요."`,
+        '',
+        '[주의사항]',
+        `· 주의사항: ${cautions.join(', ')}`,
+        '· 포인트는 1~2개만, 과하면 촌스러워져.',
+        '· 향 강한 꽃은 가능하면 피해서 가볍게.'
+      ].join('\n');
+    }
+
+    function escapeHtml(value){
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function getPaletteMeta(paletteKey){
+      const map = {
+        white_green: {
+          label: '화이트·그린',
+          colors: ['#F8F7F2', '#D9D9D6', '#C9D4C5']
+        },
+        pink_peach: {
+          label: '핑크·피치',
+          colors: ['#F7CAC9', '#F7B39B', '#F3E0BE']
+        },
+        lilac: {
+          label: '연보라·라일락',
+          colors: ['#E6D9F2', '#C7B6E6', '#9B84C9']
+        },
+        red_wine: {
+          label: '레드·버건디',
+          colors: ['#C94C5B', '#8B1E3F', '#F3D5DB']
+        },
+        yellow_orange: {
+          label: '옐로·오렌지',
+          colors: ['#FFD23F', '#FF8C42', '#FFE9CC']
+        }
+      };
+      return map[paletteKey] || null;
+    }
+
+    function paletteChipHtml(state){
+      const meta = getPaletteMeta(state && state.palette);
+      if (!meta) return '';
+      const dots = meta.colors
+        .map((hex) => `<div class="palette-dot" style="background:${escapeHtml(hex)};"></div>`)
+        .join('');
+      return [
+        '<div class="result-palette">',
+        '<div class="result-palette-title">무료결과 컬러칩</div>',
+        `<div class="palette-row">${dots}</div>`,
+        `<div class="result-palette-label">${escapeHtml(meta.label)}</div>`,
+        '</div>'
+      ].join('');
+    }
+
+    function formatPaidText(text, state){
+      const base = escapeHtml(text || '').replace(/\r\n/g, '\n');
+      const withSections = base.replace(
+        /^\s*(?:\*\*)?\[(.+?)\](?:\*\*)?\s*$/gm,
+        '<strong class="result-section">[$1]</strong>'
+      );
+      const paletteHtml = paletteChipHtml(state);
+      let withPalette = withSections;
+      if (paletteHtml) {
+        const guideHeadingPattern = /<strong class="result-section">\[\s*제작\s*가이드\s*\]<\/strong>/;
+        if (guideHeadingPattern.test(withSections)) {
+          withPalette = withSections.replace(
+            guideHeadingPattern,
+            `${paletteHtml}$&`
+          );
+        } else {
+          // 출력이 예상 형식을 조금 벗어나도 컬러칩은 보이게 처리
+          withPalette = `${paletteHtml}${withSections}`;
+        }
+      }
+      return withPalette.replace(/\n/g, '<br/>');
+    }
+
+    async function copyText(text){
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      }catch(e){}
+      try{
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        ta.style.top = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      }catch(e){
+        return false;
+      }
+    }
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value || '';
+    }
+
+    function renderDetailSecret(detailText) {
+      const container = document.getElementById('detailSecretWrap');
+      if (!container) return;
+
+      const safe = String(detailText || '').trim();
+      container.innerHTML = `
+        <div class="section-header">
+          <h3>시크릿 디테일 가이드</h3>
+          <div style="display:flex; gap:8px;">
+            <button id="btnCopyDetail" class="mini-btn">복사</button>
+            <button id="btnToggleDetail" class="mini-btn">펼치기</button>
+          </div>
+        </div>
+        <div id="detailSecretBody" style="display:none; margin-top:10px; white-space:pre-wrap;">${escapeHtml(safe)}</div>
+      `;
+
+      const copyBtn = document.getElementById('btnCopyDetail');
+      const toggleBtn = document.getElementById('btnToggleDetail');
+      if (copyBtn) copyBtn.onclick = () => copyText(safe);
+      if (toggleBtn) {
+        toggleBtn.onclick = () => {
+          const body = document.getElementById('detailSecretBody');
+          if (!body) return;
+          const isOpen = body.style.display !== 'none';
+          body.style.display = isOpen ? 'none' : 'block';
+          toggleBtn.textContent = isOpen ? '펼치기' : '접기';
+        };
+      }
+    }
+
+    function renderCardLines(lines) {
+      const container = document.getElementById('mentWrap');
+      if (!container) return;
+
+      const arr = Array.isArray(lines) ? lines.filter(Boolean) : [];
+      const top = arr[0] || '';
+      const alt = arr[1] || '';
+
+      container.innerHTML = `
+        <div class="section-header">
+          <h3>분위기 살려주는 멘트</h3>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px;">
+          <div>
+            <span class="badge reco">가장 무난</span>
+            <div style="margin-top:6px; font-weight:700;">${escapeHtml(top)}</div>
+          </div>
+          <button class="mini-btn" id="btnCopyTop">복사</button>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:14px;">
+          <div>
+            <span class="badge">대안</span>
+            <div style="margin-top:6px;">${escapeHtml(alt)}</div>
+          </div>
+          <button class="mini-btn" id="btnCopyAlt">복사</button>
+        </div>
+      `;
+
+      const topBtn = document.getElementById('btnCopyTop');
+      const altBtn = document.getElementById('btnCopyAlt');
+      if (topBtn) topBtn.onclick = () => copyText(top);
+      if (altBtn) altBtn.onclick = () => copyText(alt);
+    }
+
+    function highlightBudgetRow(sizeKey) {
+      const s = String(sizeKey || '').toUpperCase();
+      document.querySelectorAll('[data-size]').forEach((row) => {
+        const hit = (row.dataset.size || '').toUpperCase() === s;
+        row.style.fontWeight = hit ? '800' : '400';
+        row.style.background = hit ? 'rgba(34,197,94,0.10)' : 'transparent';
+      });
+    }
+
+    function showStickyBar({ onCopyOrder, onSaveImage }) {
+      const bar = document.getElementById('stickyBar');
+      if (!bar) return;
+      bar.classList.remove('hidden');
+
+      const fixedCta = document.querySelector('.fixed-cta');
+      if (fixedCta) fixedCta.classList.add('hidden');
+
+      const copyOrder = document.getElementById('ctaCopyOrder');
+      const saveImage = document.getElementById('ctaSaveImage');
+      const share = document.getElementById('ctaShare');
+      if (copyOrder) copyOrder.onclick = onCopyOrder;
+      if (saveImage) saveImage.onclick = onSaveImage;
+      if (share) {
+        share.onclick = async () => {
+          const url = location.href;
+          try {
+            await navigator.clipboard.writeText(url);
+          } catch (e) {}
+        };
+      }
+    }
+
+    function renderProResult(data) {
+      const body = document.getElementById('paidResultBody');
+      if (!body) return;
+
+      body.className = 'result-body';
+      body.innerHTML = `
+        <div class="pro-block">
+          <h3>한 줄 결론</h3>
+          <div id="oneLine" class="pro-text"></div>
+        </div>
+        <div class="pro-block">
+          <h3>꽃다발 구성</h3>
+          <div id="bouquetSpec" class="pro-text"></div>
+        </div>
+        <div class="pro-block">
+          <h3>예산 추천</h3>
+          <div id="budgetText" class="pro-text"></div>
+        </div>
+        <div class="pro-block">
+          <div class="section-header">
+            <h3>꽃집 복붙 주문서</h3>
+            <button id="btnCopyOrderInline" class="mini-btn">복사</button>
+          </div>
+          <div id="orderCopyText" class="pro-text"></div>
+        </div>
+        <div class="pro-block" id="detailSecretWrap"></div>
+        <div class="pro-block" id="mentWrap"></div>
+        <div class="pro-block">
+          <h3>피해야 할 실수</h3>
+          <ul id="avoidList" class="avoid-list"></ul>
+        </div>
+      `;
+
+      setText('oneLine', data.one_line);
+      setText('bouquetSpec', data.bouquet_spec);
+      setText('budgetText', data.budget);
+      setText('orderCopyText', data.order_copy);
+
+      const orderBtn = document.getElementById('btnCopyOrderInline');
+      if (orderBtn) orderBtn.onclick = () => copyText(data.order_copy);
+
+      renderDetailSecret(data.detail_secret);
+      renderCardLines(data.card_lines);
+
+      const avoidEl = document.getElementById('avoidList');
+      const avoidItems = Array.isArray(data.avoid) ? data.avoid : [];
+      if (avoidEl) {
+        avoidEl.innerHTML = avoidItems.map((v) => `<li>${escapeHtml(v)}</li>`).join('');
+      }
+
+      const img = document.getElementById('bouquetImg');
+      if (img && data.image_url) {
+        img.src = data.image_url;
+        img.classList.add('show');
+      } else if (img) {
+        img.classList.remove('show');
+        img.removeAttribute('src');
+      }
+
+      showStickyBar({
+        onCopyOrder: () => copyText(data.order_copy),
+        onSaveImage: () => {
+          if (!data.image_url) return;
+          const a = document.createElement('a');
+          a.href = data.image_url;
+          a.download = 'bouquet.png';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+        }
+      });
+
+      const m = String(data.budget || '').match(/\b([SML])\b/);
+      if (m && m[1]) highlightBudgetRow(m[1]);
+    }
+
+    function normalizeSavedResultForPro(result){
+      const r = (result && typeof result === 'object') ? result : {};
+      if (
+        typeof r.one_line === 'string' ||
+        typeof r.bouquet_spec === 'string' ||
+        typeof r.order_copy === 'string'
+      ) {
+        return r;
+      }
+
+      const palettes = Array.isArray(r.palettes) ? r.palettes : [];
+      const paletteNames = palettes.map((p) => p && p.name).filter(Boolean).join(', ');
+      const detailLines = [
+        r.wrapGuide ? `포장: ${String(r.wrapGuide).trim()}` : '',
+        r.flowerMix ? `꽃조합:\n${String(r.flowerMix).trim()}` : '',
+        paletteNames ? `팔레트: ${paletteNames}` : '',
+      ].filter(Boolean).join('\n');
+
+      return {
+        one_line: r.meaning ? `전하고 싶은 느낌: ${String(r.meaning).trim()}` : '추천 결과를 불러왔어요.',
+        bouquet_spec: String(r.flowerMix || '').trim(),
+        budget: String(r.priceInfo || '').trim(),
+        order_copy: String(r.orderText || '').trim(),
+        detail_secret: detailLines,
+        card_lines: Array.isArray(r.messages) ? r.messages : [],
+        avoid: [],
+        image_url: String(r.imageUrl || '').trim(),
+      };
+    }
+
+    async function runPaidGuide(){
+      const btn = document.getElementById('btnRunPaid');
+      const card = document.getElementById('paidResultCard');
+      const body = document.getElementById('paidResultBody');
+      const status = document.getElementById('paidResultStatus');
+      const imageEl = document.getElementById('bouquetImg');
+      if (!btn || !card || !body || !status || !imageEl) return;
+
+      const state = getStateFromQuery();
+      const prompt = buildPromptFromState(state);
+      const params = new URLSearchParams(location.search);
+      const isAuto = params.get('auto') === '1';
+
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      card.classList.add('show');
+      status.textContent = '생성 중';
+      body.className = 'result-body loading';
+      body.textContent = '누나가 유료 추천을 정리하고 있어...';
+      imageEl.classList.remove('show');
+      imageEl.removeAttribute('src');
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      try {
+        if (isAuto) {
+          const text = buildLocalPaidText(state);
+          status.textContent = '완료';
+          body.className = 'result-body';
+          body.innerHTML = formatPaidText(text, state);
+          imageEl.classList.remove('show');
+          imageEl.removeAttribute('src');
+          return;
+        }
+
+        const payload = {
+          prompt,
+          paletteKey: state && state.palette, // white_green/pink_peach/lilac/red_wine/yellow_orange
+        };
+
+        const res = await fetch('/api/pro', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error(`status_${res.status}`);
+
+        const data = await res.json();
+        const hasStructured =
+          data &&
+          (
+            typeof data.one_line === 'string' ||
+            typeof data.bouquet_spec === 'string' ||
+            typeof data.order_copy === 'string'
+          );
+
+        status.textContent = '완료';
+        if (hasStructured) {
+          renderProResult(data);
+        } else {
+          const text = (data && (data.raw_text || data.text)) ? String(data.raw_text || data.text).trim() : '';
+          if (!text) throw new Error('empty_text');
+          const imageUrl = (data && data.image_url) ? String(data.image_url).trim() : '';
+          body.className = 'result-body';
+          body.innerHTML = formatPaidText(text, state);
+          if (imageUrl) {
+            imageEl.src = imageUrl;
+            imageEl.classList.add('show');
+          }
+        }
+      } catch (e) {
+        status.textContent = '실패';
+        body.className = 'result-body error';
+        body.textContent = '결과 생성에 실패했어. 잠시 후 다시 눌러줘.';
+        imageEl.classList.remove('show');
+        imageEl.removeAttribute('src');
+      } finally {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      }
+    }
+
+    (async function initFromRid(){
+      const params = new URLSearchParams(location.search);
+      const rid = params.get('rid');
+      if(!rid) return;
+
+      try{
+        const res = await fetch(`/api/getPaidResult?rid=${encodeURIComponent(rid)}`);
+        const json = await res.json().catch(()=> ({}));
+        if(!res.ok || !json.ok){
+          alert('저장된 결과를 찾을 수 없어요.');
+          return;
+        }
+        renderProResult(normalizeSavedResultForPro(json.result));
+      }catch(e){
+        alert('저장된 결과를 불러오는 중 오류가 발생했어요.');
+      }
+    })();
+
+    document.getElementById('btnRunPaid')?.addEventListener('click', runPaidGuide);
+    // Auto-run when arriving from the paid CTA
+    try {
+      const params = new URLSearchParams(location.search);
+      if (params.get('auto') === '1') {
+        setTimeout(runPaidGuide, 0);
+      }
+    } catch (e) {}
+  </script>
+</body>
+</html>
