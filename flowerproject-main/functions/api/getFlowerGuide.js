@@ -50,17 +50,18 @@ function normalizeCode(v) {
     .replace(/\s+/g, "");
 }
 
-function isValidVipCode(env, rawCode) {
-  const input = normalizeCode(rawCode);
-  if (!input) return false;
-
-  const envCodes = String(env?.VIP_CODES || "")
+function configuredVipCodes(env) {
+  const list = String(env?.VIP_CODES || "")
     .split(",")
     .map((s) => normalizeCode(s))
     .filter(Boolean);
+  return list.length ? list : ["TONEART"];
+}
 
-  const list = envCodes.length ? envCodes : ["TONEART"];
-  return list.includes(input);
+function isValidVipCode(allowedCodes, rawCode) {
+  const input = normalizeCode(rawCode);
+  if (!input) return false;
+  return allowedCodes.includes(input);
 }
 
 function isSameOrigin(candidate, origin) {
@@ -72,13 +73,12 @@ function isSameOrigin(candidate, origin) {
   }
 }
 
-function corsHeadersFor(req) {
+function corsHeadersFor(req, allowedOrigin) {
   const requestUrl = new URL(req.url);
   const requestOrigin = requestUrl.origin;
-  const originHeader = req.headers.get("Origin");
-  const allowedOrigin = isSameOrigin(originHeader, requestOrigin) ? originHeader : requestOrigin;
+  const finalOrigin = allowedOrigin || requestOrigin;
   return {
-    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Origin": finalOrigin,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     Vary: "Origin",
@@ -90,6 +90,54 @@ function json(data, status = 200, headers = {}) {
     status,
     headers: { "Content-Type": "application/json", ...headers },
   });
+}
+
+function parseAllowedOrigins(env, requestOrigin) {
+  const fromEnv = String(env?.ALLOWED_ORIGINS || "")
+    .split(",")
+    .map((v) => String(v || "").trim())
+    .filter(Boolean);
+  return new Set([requestOrigin, ...fromEnv]);
+}
+
+function getClientIp(request) {
+  return (
+    request.headers.get("CF-Connecting-IP") ||
+    request.headers.get("x-forwarded-for") ||
+    "unknown"
+  );
+}
+
+async function enforceRateLimit({ request, env, vipCode }) {
+  const kv = env?.RATE_LIMIT_KV || env?.RESULTS_KV || null;
+  if (!kv) {
+    return { ok: false, status: 500, error: "missing_rate_limit_kv_binding" };
+  }
+
+  const max = Math.max(1, Number(env?.VIP_RATE_LIMIT_MAX || 20));
+  const windowSec = Math.max(30, Number(env?.VIP_RATE_LIMIT_WINDOW_SEC || 3600));
+  const bucket = Math.floor(Date.now() / 1000 / windowSec);
+  const ip = getClientIp(request);
+  const key = `viprl:v1:${normalizeCode(vipCode)}:${ip}:${bucket}`;
+
+  let current = 0;
+  try {
+    current = Number((await kv.get(key)) || 0);
+  } catch {
+    return { ok: false, status: 500, error: "rate_limit_storage_unavailable" };
+  }
+
+  if (current >= max) {
+    return { ok: false, status: 429, error: "too_many_requests" };
+  }
+
+  try {
+    await kv.put(key, String(current + 1), { expirationTtl: windowSec + 60 });
+  } catch {
+    return { ok: false, status: 500, error: "rate_limit_storage_unavailable" };
+  }
+
+  return { ok: true };
 }
 
 // ✅ fallback 로컬 이미지(최소한 이 정도는 있어야 안전)
@@ -134,20 +182,17 @@ async function generateBouquetImageBase64({ apiKey, prompt }) {
 
 export async function onRequest(context) {
   const { request, env } = context;
-  const cors = corsHeadersFor(request);
   const requestUrl = new URL(request.url);
   const requestOrigin = requestUrl.origin;
   const originHeader = request.headers.get("origin");
-  const refererHeader = request.headers.get("referer");
-  const originAllowed =
-    !originHeader ||
-    isSameOrigin(originHeader, requestOrigin) ||
-    isSameOrigin(refererHeader, requestOrigin);
+  const allowedOrigins = parseAllowedOrigins(env, requestOrigin);
+  const originAllowed = !!originHeader && allowedOrigins.has(originHeader);
+  const cors = corsHeadersFor(request, originAllowed ? originHeader : requestOrigin);
+  const vipCodes = configuredVipCodes(env);
 
   if (request.method === "OPTIONS") return new Response("", { status: 204, headers: cors });
   if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, cors);
   if (!originAllowed) return json({ error: "forbidden_origin" }, 403, cors);
-
   let body = {};
   try {
     body = await request.json();
@@ -155,12 +200,21 @@ export async function onRequest(context) {
     return json({ error: "invalid_json_body" }, 400, cors);
   }
 
-  if (!isValidVipCode(env, body.vipCode)) {
+  if (!isValidVipCode(vipCodes, body.vipCode)) {
     return json({ error: "vip_code_required_or_invalid" }, 403, cors);
   }
 
-  const guide = await buildGuide(body, env);
-  return json(guide, 200, cors);
+  const rateLimit = await enforceRateLimit({ request, env, vipCode: body.vipCode });
+  if (!rateLimit.ok) {
+    return json({ error: rateLimit.error }, rateLimit.status, cors);
+  }
+
+  try {
+    const guide = await buildGuide(body, env);
+    return json(guide, 200, cors);
+  } catch (error) {
+    return json({ error: "guide_generation_failed" }, 500, cors);
+  }
 }
 
 /**
