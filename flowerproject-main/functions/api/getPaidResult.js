@@ -13,6 +13,33 @@ function parseAllowedOrigins(env, requestOrigin) {
   return new Set([requestOrigin, ...fromEnv]);
 }
 
+function originFromHeaderValue(candidate) {
+  if (!candidate) return "";
+  try {
+    return new URL(candidate).origin;
+  } catch {
+    return "";
+  }
+}
+
+function resolveAllowedOrigin(request, allowedOrigins) {
+  const originHeader = String(request.headers.get("origin") || "").trim();
+  if (originHeader && allowedOrigins.has(originHeader)) {
+    return originHeader;
+  }
+
+  const refererOrigin = originFromHeaderValue(request.headers.get("referer"));
+  if (refererOrigin && allowedOrigins.has(refererOrigin)) {
+    return refererOrigin;
+  }
+
+  return "";
+}
+
+function isValidRid(value) {
+  return /^[A-Za-z0-9_-]{8,120}$/.test(String(value || ""));
+}
+
 function corsHeadersFor(req, allowedOrigin) {
   const requestUrl = new URL(req.url);
   const requestOrigin = requestUrl.origin;
@@ -29,17 +56,17 @@ export async function onRequest(context) {
   const { request, env } = context;
   const requestUrl = new URL(request.url);
   const requestOrigin = requestUrl.origin;
-  const originHeader = request.headers.get("origin");
   const allowedOrigins = parseAllowedOrigins(env, requestOrigin);
-  const originAllowed = !originHeader || allowedOrigins.has(originHeader);
-  const cors = corsHeadersFor(request, originAllowed ? originHeader : requestOrigin);
+  const allowedOrigin = resolveAllowedOrigin(request, allowedOrigins);
+  const cors = corsHeadersFor(request, allowedOrigin || requestOrigin);
 
   if (request.method === "OPTIONS") return new Response("", { status: 204, headers: cors });
   if (request.method !== "GET") return json({ ok: false, error: "method_not_allowed" }, 405, cors);
-  if (!originAllowed) return json({ ok: false, error: "forbidden_origin" }, 403, cors);
+  if (!allowedOrigin) return json({ ok: false, error: "forbidden_origin" }, 403, cors);
 
   const rid = String(requestUrl.searchParams.get("rid") || "").trim();
   if (!rid) return json({ ok: false, error: "rid_required" }, 400, cors);
+  if (!isValidRid(rid)) return json({ ok: false, error: "rid_invalid" }, 400, cors);
 
   const kv = env?.RESULTS_KV || null;
   if (!kv) return json({ ok: false, error: "result_not_found" }, 404, cors);
@@ -47,7 +74,6 @@ export async function onRequest(context) {
   let raw = null;
   try {
     raw = await kv.get(`paid:${rid}`);
-    if (!raw) raw = await kv.get(rid);
   } catch {
     return json({ ok: false, error: "storage_unavailable" }, 500, cors);
   }
