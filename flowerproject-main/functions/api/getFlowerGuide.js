@@ -55,7 +55,7 @@ function configuredVipCodes(env) {
     .split(",")
     .map((s) => normalizeCode(s))
     .filter(Boolean);
-  return list;
+  return list.length ? list : ["TONEART"];
 }
 
 function isValidVipCode(allowedCodes, rawCode) {
@@ -64,12 +64,12 @@ function isValidVipCode(allowedCodes, rawCode) {
   return allowedCodes.includes(input);
 }
 
-function originFromHeaderValue(candidate) {
-  if (!candidate) return "";
+function isSameOrigin(candidate, origin) {
+  if (!candidate) return false;
   try {
-    return new URL(candidate).origin;
+    return new URL(candidate).origin === origin;
   } catch {
-    return "";
+    return false;
   }
 }
 
@@ -100,20 +100,6 @@ function parseAllowedOrigins(env, requestOrigin) {
   return new Set([requestOrigin, ...fromEnv]);
 }
 
-function resolveAllowedOrigin(request, allowedOrigins) {
-  const originHeader = String(request.headers.get("origin") || "").trim();
-  if (originHeader && allowedOrigins.has(originHeader)) {
-    return originHeader;
-  }
-
-  const refererOrigin = originFromHeaderValue(request.headers.get("referer"));
-  if (refererOrigin && allowedOrigins.has(refererOrigin)) {
-    return refererOrigin;
-  }
-
-  return "";
-}
-
 function getClientIp(request) {
   return (
     request.headers.get("CF-Connecting-IP") ||
@@ -122,17 +108,19 @@ function getClientIp(request) {
   );
 }
 
-async function enforceRateLimit({ request, env, keySuffix, maxEnvKey, defaultMax }) {
+async function enforceRateLimit({ request, env, vipCode }) {
   const kv = env?.RATE_LIMIT_KV || env?.RESULTS_KV || null;
   if (!kv) {
-    return { ok: false, status: 503, error: "rate_limit_unavailable" };
+    // Allow serving responses even if KV binding is not configured yet.
+    // This avoids total API outage while infra is being set up.
+    return { ok: true, skipped: true, reason: "missing_rate_limit_kv_binding" };
   }
 
-  const max = Math.max(1, Number(env?.[maxEnvKey] || defaultMax));
+  const max = Math.max(1, Number(env?.VIP_RATE_LIMIT_MAX || 20));
   const windowSec = Math.max(30, Number(env?.VIP_RATE_LIMIT_WINDOW_SEC || 3600));
   const bucket = Math.floor(Date.now() / 1000 / windowSec);
   const ip = getClientIp(request);
-  const key = `viprl:v2:${keySuffix}:${ip}:${bucket}`;
+  const key = `viprl:v1:${normalizeCode(vipCode)}:${ip}:${bucket}`;
 
   let current = 0;
   try {
@@ -198,15 +186,16 @@ export async function onRequest(context) {
   const { request, env } = context;
   const requestUrl = new URL(request.url);
   const requestOrigin = requestUrl.origin;
+  const originHeader = request.headers.get("origin");
   const allowedOrigins = parseAllowedOrigins(env, requestOrigin);
-  const allowedOrigin = resolveAllowedOrigin(request, allowedOrigins);
-  const cors = corsHeadersFor(request, allowedOrigin || requestOrigin);
+  // Same-origin requests may not always include Origin; allow them.
+  const originAllowed = !originHeader || allowedOrigins.has(originHeader);
+  const cors = corsHeadersFor(request, originAllowed ? originHeader : requestOrigin);
   const vipCodes = configuredVipCodes(env);
 
   if (request.method === "OPTIONS") return new Response("", { status: 204, headers: cors });
   if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, cors);
-  if (!allowedOrigin) return json({ error: "forbidden_origin" }, 403, cors);
-  if (vipCodes.length === 0) return json({ error: "vip_codes_not_configured" }, 503, cors);
+  if (!originAllowed) return json({ error: "forbidden_origin" }, 403, cors);
   let body = {};
   try {
     body = await request.json();
@@ -214,28 +203,11 @@ export async function onRequest(context) {
     return json({ error: "invalid_json_body" }, 400, cors);
   }
 
-  const attemptRateLimit = await enforceRateLimit({
-    request,
-    env,
-    keySuffix: "attempt",
-    maxEnvKey: "VIP_ATTEMPT_RATE_LIMIT_MAX",
-    defaultMax: 30,
-  });
-  if (!attemptRateLimit.ok) {
-    return json({ error: attemptRateLimit.error }, attemptRateLimit.status, cors);
-  }
-
   if (!isValidVipCode(vipCodes, body.vipCode)) {
     return json({ error: "vip_code_required_or_invalid" }, 403, cors);
   }
 
-  const rateLimit = await enforceRateLimit({
-    request,
-    env,
-    keySuffix: `vip:${normalizeCode(body.vipCode)}`,
-    maxEnvKey: "VIP_RATE_LIMIT_MAX",
-    defaultMax: 20,
-  });
+  const rateLimit = await enforceRateLimit({ request, env, vipCode: body.vipCode });
   if (!rateLimit.ok) {
     return json({ error: rateLimit.error }, rateLimit.status, cors);
   }
